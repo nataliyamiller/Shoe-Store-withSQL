@@ -63,7 +63,7 @@ public class Store {
   }
 
   public static Store find(int id) {
-   try(Connection con = DB.sql2o.open()) {
+    try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM stores WHERE id=:id";
       Store store = con.createQuery(sql)
         .addParameter("id", id)
@@ -71,4 +71,16 @@ public class Store {
       return store;
       }
     }
+
+  public void update(String name, String address, String phone_number) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE stores SET name = :name, address = :address, phone_number = :phone_number WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("name", name)
+        .addParameter("address", address)
+        .addParameter("phone_number", phone_number)
+        .addParameter("id", id)
+        .executeUpdate();
+        }
+      }
 }

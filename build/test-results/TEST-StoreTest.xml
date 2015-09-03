@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StoreTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2015-09-03T03:40:40" hostname="Nataliyas-MacBook-Pro.local" time="0.273">
+<testsuite name="StoreTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2015-09-03T03:49:49" hostname="Nataliyas-MacBook-Pro.local" time="0.344">
   <properties/>
-  <testcase name="save_savesStoreIntoDatabase_true" classname="StoreTest" time="0.169"/>
-  <testcase name="find_findsStoreInDatabase_true" classname="StoreTest" time="0.058"/>
-  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.018"/>
-  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.009"/>
-  <testcase name="equals_returnTrueIfStoresAreTheSame" classname="StoreTest" time="0.017"/>
+  <testcase name="save_savesStoreIntoDatabase_true" classname="StoreTest" time="0.207"/>
+  <testcase name="find_findsStoreInDatabase_true" classname="StoreTest" time="0.031"/>
+  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.02"/>
+  <testcase name="update_changesStoreNameAddressAndPhoneNumberInDatabase_true" classname="StoreTest" time="0.053"/>
+  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.012"/>
+  <testcase name="equals_returnTrueIfStoresAreTheSame" classname="StoreTest" time="0.018"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
