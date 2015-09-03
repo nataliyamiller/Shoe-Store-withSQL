@@ -72,5 +72,16 @@ public class Brand {
     }
   }
 
+  public static Brand find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM brands WHERE id=:id";
+      Brand brand = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Brand.class);
+      return brand;
+      }
+    }
+
+
 
 }

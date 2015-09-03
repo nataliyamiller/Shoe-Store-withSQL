@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BrandTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2015-09-03T04:25:51" hostname="Nataliyas-MacBook-Pro.local" time="0.205">
+<testsuite name="BrandTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2015-09-03T04:29:24" hostname="Nataliyas-MacBook-Pro.local" time="0.239">
   <properties/>
-  <testcase name="equals_returnTrueIfBrandsAreTheSame" classname="BrandTest" time="0.104"/>
-  <testcase name="save_savesBrandIntoDatabase_true" classname="BrandTest" time="0.071"/>
-  <testcase name="all_emptyAtFirst" classname="BrandTest" time="0.019"/>
-  <testcase name="brand_instantiatesCorrectly_true" classname="BrandTest" time="0.009"/>
+  <testcase name="equals_returnTrueIfBrandsAreTheSame" classname="BrandTest" time="0.12"/>
+  <testcase name="save_savesBrandIntoDatabase_true" classname="BrandTest" time="0.057"/>
+  <testcase name="all_emptyAtFirst" classname="BrandTest" time="0.018"/>
+  <testcase name="find_findsBrandInDatabase_true" classname="BrandTest" time="0.029"/>
+  <testcase name="brand_instantiatesCorrectly_true" classname="BrandTest" time="0.011"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

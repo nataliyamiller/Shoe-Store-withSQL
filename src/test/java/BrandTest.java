@@ -34,4 +34,12 @@ public class BrandTest {
     myBrand.save();
     assertTrue(Brand.all().get(0).equals(myBrand));
   }
+
+  @Test
+  public void find_findsBrandInDatabase_true() {
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    Brand savedBrand = Brand.find(myBrand.getId());
+    assertTrue(myBrand.equals(savedBrand));
+  }
 }
