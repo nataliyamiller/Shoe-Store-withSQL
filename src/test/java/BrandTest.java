@@ -42,4 +42,20 @@ public class BrandTest {
     Brand savedBrand = Brand.find(myBrand.getId());
     assertTrue(myBrand.equals(savedBrand));
   }
+
+  @Test
+  public void update_changesStoreNameAddressAndPhoneNumberInDatabase_true() {
+    Brand myBrand = new Brand ("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    String brandName = "Adidas";
+    String style = "Casual";
+    String type = "Men's";
+    String color = "black";
+    myBrand.update(brandName, style, type, color);
+    assertTrue(Brand.all().get(0).getBrandName().equals(brandName));
+    assertTrue(Brand.all().get(0).getStyle().equals(style));
+    assertTrue(Brand.all().get(0).getType().equals(type));
+    assertTrue(Brand.all().get(0).getColor().equals(color));
+  }
+
 }
