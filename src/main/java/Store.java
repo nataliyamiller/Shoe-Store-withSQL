@@ -50,5 +50,18 @@ public class Store {
     }
   }
 
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO stores (name, address, phone_number) VALUES (:name, :address, :phone_number)";
+      this.id = (int) con.createQuery(sql, true)
+      .addParameter("name", this.name)
+      .addParameter("address", this.address)
+      .addParameter("phone_number", this.phone_number)
+      .executeUpdate()
+      .getKey();
+    }
+  }
+
+
 
 }

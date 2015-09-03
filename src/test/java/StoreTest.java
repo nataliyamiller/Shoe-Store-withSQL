@@ -28,4 +28,12 @@ public class StoreTest {
     assertTrue(firstStore.equals(secondStore));
   }
 
+  @Test
+  public void save_savesStoreIntoDatabase_true() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+    assertTrue(Store.all().get(0).equals(myStore));
+  }
+
+
 }
