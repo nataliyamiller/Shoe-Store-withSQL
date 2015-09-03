@@ -6,7 +6,12 @@ public class Store {
   private String name;
   private String address;
   private String phone_number;
+  private int id;
 
+
+  public int getId() {
+    return id;
+  }
   public String getName() {
     return name;
   }
@@ -24,5 +29,13 @@ public class Store {
     this.address = address;
     this.phone_number = phoneNumber;
   }
+
+  public static List<Store> all() {
+    String sql = "SELECT * FROM stores";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Store.class);
+    }
+  }
+
 
 }

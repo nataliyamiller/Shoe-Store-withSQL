@@ -16,5 +16,9 @@ public class StoreTest {
     assertTrue(testStore instanceof Store);
   }
 
+  @Test
+  public void all_emptyAtFirst() {
+    assertEquals(Store.all().size(), 0);
+  }
 
- }
+}
