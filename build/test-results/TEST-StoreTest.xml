@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StoreTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2015-09-03T03:35:40" hostname="Nataliyas-MacBook-Pro.local" time="0.32">
+<testsuite name="StoreTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2015-09-03T03:40:40" hostname="Nataliyas-MacBook-Pro.local" time="0.273">
   <properties/>
-  <testcase name="save_savesStoreIntoDatabase_true" classname="StoreTest" time="0.278"/>
-  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.019"/>
-  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.011"/>
-  <testcase name="equals_returnTrueIfStoresAreTheSame" classname="StoreTest" time="0.011"/>
+  <testcase name="save_savesStoreIntoDatabase_true" classname="StoreTest" time="0.169"/>
+  <testcase name="find_findsStoreInDatabase_true" classname="StoreTest" time="0.058"/>
+  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.018"/>
+  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.009"/>
+  <testcase name="equals_returnTrueIfStoresAreTheSame" classname="StoreTest" time="0.017"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

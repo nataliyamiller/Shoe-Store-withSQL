@@ -35,5 +35,15 @@ public class StoreTest {
     assertTrue(Store.all().get(0).equals(myStore));
   }
 
+  @Test
+  public void find_findsStoreInDatabase_true() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+    Store savedStore = Store.find(myStore.getId());
+    assertTrue(myStore.equals(savedStore));
+  }
+
+
+
 
 }
