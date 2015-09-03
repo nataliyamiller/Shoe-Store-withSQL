@@ -21,4 +21,11 @@ public class StoreTest {
     assertEquals(Store.all().size(), 0);
   }
 
+  @Test
+  public void equals_returnTrueIfStoresAreTheSame() {
+    Store firstStore = new Store("Target", "Portland, OR", "503-555-5555");
+    Store secondStore = new Store("Target", "Portland, OR", "503-555-5555");
+    assertTrue(firstStore.equals(secondStore));
+  }
+
 }

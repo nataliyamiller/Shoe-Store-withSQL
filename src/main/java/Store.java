@@ -30,6 +30,19 @@ public class Store {
     this.phone_number = phoneNumber;
   }
 
+  @Override
+  public boolean equals(Object otherStore) {
+    if(!(otherStore instanceof Store)) {
+      return false;
+    } else {
+      Store newStore = (Store) otherStore;
+      return this.getName().equals(newStore.getName()) &&
+             this.getAddress().equals(newStore.getAddress()) &&
+             this.getPhoneNumber().equals(newStore.getPhoneNumber()) &&
+             this.getId() == newStore.getId();
+    }
+  }
+
   public static List<Store> all() {
     String sql = "SELECT * FROM stores";
     try(Connection con = DB.sql2o.open()) {

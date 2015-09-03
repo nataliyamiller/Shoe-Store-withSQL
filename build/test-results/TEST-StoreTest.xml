@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StoreTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2015-09-03T03:23:08" hostname="Nataliyas-MacBook-Pro.local" time="0.188">
+<testsuite name="StoreTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-09-03T03:30:38" hostname="Nataliyas-MacBook-Pro.local" time="0.181">
   <properties/>
-  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.178"/>
-  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.009"/>
+  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.161"/>
+  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.01"/>
+  <testcase name="equals_returnTrueIfStoresAreTheSame" classname="StoreTest" time="0.01"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
