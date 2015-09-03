@@ -56,6 +56,9 @@ public class StoreTest {
     assertTrue(Store.all().get(0).getPhoneNumber().equals(phoneNumber));
   }
 
+  
+
+
 
 
 

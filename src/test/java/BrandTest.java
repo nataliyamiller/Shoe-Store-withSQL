@@ -10,5 +10,9 @@ public class BrandTest {
   @Rule
   public DatabaseRule database = new DatabaseRule();
 
-
+  @Test
+  public void brand_instantiatesCorrectly_true() {
+    Brand testBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    assertTrue(testBrand instanceof Brand);
   }
+}
