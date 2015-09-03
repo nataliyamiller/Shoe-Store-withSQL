@@ -15,4 +15,9 @@ public class BrandTest {
     Brand testBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
     assertTrue(testBrand instanceof Brand);
   }
+
+  @Test
+  public void all_emptyAtFirst() {
+    assertEquals(Brand.all().size(), 0);
+  }
 }

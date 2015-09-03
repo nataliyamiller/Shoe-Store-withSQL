@@ -38,5 +38,14 @@ public class Brand {
     this.color = color;
   }
 
+  public static List<Brand> all() {
+    String sql = "SELECT * FROM brands";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Brand.class);
+    }
+  }
+
+
+
 
 }
