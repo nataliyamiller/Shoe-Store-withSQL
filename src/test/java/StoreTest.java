@@ -56,7 +56,20 @@ public class StoreTest {
     assertTrue(Store.all().get(0).getPhoneNumber().equals(phoneNumber));
   }
 
-  
+  @Test
+  public void addBrand_addsBrandToStore() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+
+    myStore.addBrand(myBrand);
+    Brand savedBrand = myStore.getBrands().get(0);
+    assertTrue(myBrand.equals(savedBrand));
+ }
+
+
 
 
 
