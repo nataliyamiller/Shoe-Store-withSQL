@@ -38,14 +38,26 @@ public class Brand {
     this.color = color;
   }
 
+  @Override
+  public boolean equals(Object otherBrand) {
+    if(!(otherBrand instanceof Brand)) {
+      return false;
+    } else {
+      Brand newBrand = (Brand) otherBrand;
+      return this.getBrandName().equals(newBrand.getBrandName()) &&
+             this.getStyle().equals(newBrand.getStyle()) &&
+             this.getType().equals(newBrand.getType()) &&
+             this.getColor().equals(newBrand.getColor()) &&
+             this.getId() == newBrand.getId();
+    }
+  }
+
   public static List<Brand> all() {
     String sql = "SELECT * FROM brands";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Brand.class);
     }
   }
-
-
 
 
 }

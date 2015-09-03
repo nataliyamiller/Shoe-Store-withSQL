@@ -20,4 +20,11 @@ public class BrandTest {
   public void all_emptyAtFirst() {
     assertEquals(Brand.all().size(), 0);
   }
+
+  @Test
+  public void equals_returnTrueIfBrandsAreTheSame() {
+    Brand firstBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    Brand secondBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    assertTrue(firstBrand.equals(secondBrand));
+  }
 }
