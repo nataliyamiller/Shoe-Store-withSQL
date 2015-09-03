@@ -27,4 +27,11 @@ public class BrandTest {
     Brand secondBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
     assertTrue(firstBrand.equals(secondBrand));
   }
+
+  @Test
+  public void save_savesBrandIntoDatabase_true() {
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    assertTrue(Brand.all().get(0).equals(myBrand));
+  }
 }

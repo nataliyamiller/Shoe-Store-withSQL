@@ -59,5 +59,18 @@ public class Brand {
     }
   }
 
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO brands (brand_name, style, type, color) VALUES (:brand_name, :style, :type, :color)";
+      this.id = (int) con.createQuery(sql, true)
+      .addParameter("brand_name", this.brand_name)
+      .addParameter("style", this.style)
+      .addParameter("type", this.type)
+      .addParameter("color", this.color)
+      .executeUpdate()
+      .getKey();
+    }
+  }
+
 
 }
