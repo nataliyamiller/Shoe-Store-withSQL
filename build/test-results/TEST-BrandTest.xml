@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BrandTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2015-09-04T16:35:53" hostname="Nataliyas-MacBook-Pro.local" time="0.511">
+<testsuite name="BrandTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2015-09-04T18:27:38" hostname="Nataliyas-MacBook-Pro.local" time="0.381">
   <properties/>
-  <testcase name="equals_returnTrueIfBrandsAreTheSame" classname="BrandTest" time="0.154"/>
-  <testcase name="save_savesBrandIntoDatabase_true" classname="BrandTest" time="0.121"/>
+  <testcase name="equals_returnTrueIfBrandsAreTheSame" classname="BrandTest" time="0.026"/>
+  <testcase name="save_savesBrandIntoDatabase_true" classname="BrandTest" time="0.106"/>
   <testcase name="all_emptyAtFirst" classname="BrandTest" time="0.022"/>
-  <testcase name="find_findsBrandInDatabase_true" classname="BrandTest" time="0.046"/>
-  <testcase name="update_changesStoreNameAddressAndPhoneNumberInDatabase_true" classname="BrandTest" time="0.069"/>
-  <testcase name="addStore_addsStoreToBrand" classname="BrandTest" time="0.086"/>
-  <testcase name="brand_instantiatesCorrectly_true" classname="BrandTest" time="0.009"/>
+  <testcase name="find_findsBrandInDatabase_true" classname="BrandTest" time="0.073"/>
+  <testcase name="update_changesStoreNameAddressAndPhoneNumberInDatabase_true" classname="BrandTest" time="0.06"/>
+  <testcase name="addStore_addsStoreToBrand" classname="BrandTest" time="0.082"/>
+  <testcase name="brand_instantiatesCorrectly_true" classname="BrandTest" time="0.01"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

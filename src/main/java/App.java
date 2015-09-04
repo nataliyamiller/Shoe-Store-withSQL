@@ -10,6 +10,19 @@ import java.util.Set;
     public static void main(String[] args) {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
+    HashMap<String, Object> model = new HashMap<String, Object>();
+    VelocityTemplateEngine engine = new VelocityTemplateEngine();
+
+    get("/", (request, response) -> {
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, engine);
+
+    get("/", (request, response) -> {
+      model.put("stores", Store.all());
+      model.put("template", "templates/stores.vtl");
+      return new ModelAndView(model, layout);
+    }, engine);
 
   }
 }
