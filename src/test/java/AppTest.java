@@ -28,4 +28,10 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Shoe stores");
   }
 
+  @Test
+  public void stylistClientsFormIsDisplayed() {
+    goTo("http://localhost:4567/stores");
+    assertThat(pageSource()).contains("Add a new store");
+  }
+
 }

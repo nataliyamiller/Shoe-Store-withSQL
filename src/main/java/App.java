@@ -18,7 +18,7 @@ import java.util.Set;
       return new ModelAndView(model, layout);
     }, engine);
 
-    get("/", (request, response) -> {
+    get("/stores", (request, response) -> {
       model.put("stores", Store.all());
       model.put("template", "templates/stores.vtl");
       return new ModelAndView(model, layout);
