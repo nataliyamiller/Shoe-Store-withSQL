@@ -34,4 +34,13 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Add a new store");
   }
 
+  @Test
+  public void storeIsSavedToDatabaseAndDisplayedOnTheStoresPage() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+    String storePath = ("http://localhost:4567/stores");
+    goTo(storePath);
+    assertThat(pageSource()).contains("Target", "Portland, OR", "503-555-5555");
+  }
+
 }
