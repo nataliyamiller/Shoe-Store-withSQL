@@ -69,10 +69,17 @@ public class StoreTest {
     assertTrue(myBrand.equals(savedBrand));
  }
 
+  @Test
+  public void delete_deletesAllStoresAndListAssociation () {
+    Store myStore = new Store ("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
 
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
 
-
-
-
+    myStore.addBrand(myBrand);
+    myStore.delete();
+    assertEquals(myBrand.getStores().size(), 0);
+  }
 
 }

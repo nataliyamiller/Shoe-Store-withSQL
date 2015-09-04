@@ -109,7 +109,22 @@ public class Store {
           .addParameter("brandId", brandId)
           .executeAndFetchFirst(Brand.class);
         brands.add(brand);
-      }return brands;
+      }
+      return brands;
+    }
+  }
+
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String deleteQuery = "DELETE FROM stores WHERE id = :id;";
+      con.createQuery(deleteQuery)
+        .addParameter("id", id)
+        .executeUpdate();
+
+      String joinDeleteQuery = "DELETE FROM stores_brands WHERE store_id = :store_id";
+        con.createQuery(joinDeleteQuery)
+          .addParameter("store_id", this.getId())
+          .executeUpdate();
     }
   }
 
