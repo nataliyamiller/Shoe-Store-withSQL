@@ -58,4 +58,18 @@ public class BrandTest {
     assertTrue(Brand.all().get(0).getColor().equals(color));
   }
 
+  @Test
+  public void addStore_addsStoreToBrand() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+
+    myBrand.addStore(myStore);
+    Store savedStore = myBrand.getStores().get(0);
+    assertTrue(myStore.equals(savedStore));
+ }
+
+
 }

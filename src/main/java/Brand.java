@@ -115,7 +115,7 @@ public class Brand {
         ArrayList<Store> stores = new ArrayList<Store>();
 
       for(Integer storeId : storeIds) {
-        String storeQuery = "SELECT * FROM bstores WHERE id=:storeId";
+        String storeQuery = "SELECT * FROM stores WHERE id=:storeId";
         Store store = con.createQuery(storeQuery)
           .addParameter("storeId", storeId)
           .executeAndFetchFirst(Store.class);
