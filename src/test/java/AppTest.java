@@ -43,4 +43,12 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Target", "Portland, OR", "503-555-5555");
   }
 
+  @Test
+  public void storetIsDisplayedOnItsPage() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");;
+    myStore.save();
+    String storePath = String.format("http://localhost:4567/stores/%d", myStore.getId());
+    goTo(storePath);
+    assertThat(pageSource()).contains("Welcome to Target's page");
+  }
 }
