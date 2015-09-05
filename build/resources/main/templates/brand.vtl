@@ -1,67 +1,78 @@
-<h1>Welcome to $brand.getBrandName() brand page</h1>
-<h4>Style: $brand.getStyle()</h4>
-<h4>Type: $brand.getType()</h4>
-<h4>Color: $brand.getColor()</h4>
+<h2>Welcome to $brand.getBrandName() brand page</h2>
+<h5>Style: $brand.getStyle()</h5>
+<h5>Type: $brand.getType()</h5>
+<h5>Color: $brand.getColor()</h5>
 
-#if($stores.size() != 0 )
-<h2>You can find this brand in the following stores :</h2>
-  <ol>
-    #foreach($store in $stores)
-      <li>Store name: <a href="/stores/$store.getId()/edit">$store.getName()</a>,
-      Address: <a href:="/stores/$store.getId()/edit">$store.getAddress()</a>,
-      Phone number: <a href:="/stores/$store.getId()/edit">$store.getPhoneNumber()</a></li>
-      #end
-  </ol>
+#if($brand.getStores().size() != 0 )
+<h2>$brand.getBrandName() is currently available at the following stores:</h2>
+<table border="1" class="table table-striped">
+      <th>Store Name</th>
+      <th>Address</th>
+      <th>Phone number</th>
+  <tbody>
+  #foreach($store in $brand.getStores())
+  <tr>
+    <td><a href="/stores/$store.getId()/edit">$store.getName()</a></td>
+    <td><a href="/stores/$store.getId()/edit">$store.getAddress()</a></td>
+    <td><a href="/stores/$store.getId()/edit">$store.getPhoneNumber()</a></td>
+  </tr>
+  #end
+</tbody>
+</table>
 #else
-  <h2>Currently there are no stores that carry this brand. Add this brand to the first store! </h2>
+<h4>Currently this brand doens't have any added stores. Add the first store to this brand! </h4>
 #end
 
-<h3>Add $brand.getBrandName() to a store:</h3>
+<h3>Add a store to this brand:</h3>
 
-<form action="/brands/$brand.getId()" method="post">
-    <div class="form-group">
-      <label for="name">Store Name</label>
-      <input id="name" name="name" type="text" placeholder="Awesome store">
-    </div>
-
-    <div class="form-group">
-      <label for="address">Address</label>
-      <input id="address" name="address" type="text" placeholder="Portland, OR">
-    </div>
-
-    <div class="form-group">
-      <label for="phone_number">Phone number</label>
-      <input id="phone_number" name="phone_number" type="text" placeholder="503-555-5555">
-    </div>
-    <button type="submit" class="btn btn-primary btn-lg">Add brand to store</button>
+<form action='/brands/$brand.getId()/addstores' method='post'>
+  <input id="brand_id" name="brand_id" type="hidden" value="$brand.getId()">
+  <label for="store_id">Select a store</label>
+  <select id='store_id' name='store_id' type='text'>
+    #foreach($store in $stores)
+      <option value="$store.getId()"> $store.getName() $store.getAddress() $store.getPhoneNumber </option>
+    #end
+  </select>
+  <button type='submit'>Add store</button>
 </form>
 
+<h4>Don't see the store you like in the list? Add a completely new store<a href='/stores'> here</a></h4>
 
-<h4>Update this brand information:</h4>
+<h4>Update this brand's information:</h4>
 
-<form action="/brands/$brand.getId()" method="post">
-  <div class="form-group">
-    <label for="brand_name">New brand name</label>
-    <input id="brand_name" name="brand_name" type="text" placeholder="Nike">
-  </div>
-
-  <div class="form-group">
-    <label for="style">Style</label>
-    <input id="style" name="style" type="text" placeholder="Sport">
-  </div>
-
-  <div class="form-group">
-    <label for="type">Type</label>
-    <input id="type" name="type" type="text" placeholder="Women's">
-  </div>
-
-  <div class="form-group">
-    <label for="color">Type</label>
-    <input id="color" name="color" type="text" placeholder="Yellow">
-  </div>
+<form action="/brands/$brand.getId()/update" method="post">
+<div class="form-group">
+  <label for="brand_name">New brand name</label>
+  <input id="brand_name" name="brand_name" type="text" placeholder="Best Brand">
   <button type="submit" class="btn btn-success">Submit</button>
+</div>
 </form>
 
-<form action="/brands/$brand.getId()/delete" method="post">
- <button type="submit" class="btn btn-success">Delete this brand</button>
+<form action="/brands/$brand.getId()/update" method="post">
+<div class="form-group">
+  <label for="style">New style</label>
+  <input id="style" name="style" type="text" placeholder="Wedding">
+  <button type="submit" class="btn btn-success">Submit</button>
+</div>
+</form>
+
+<form action="/brands/$brand.getId()/update" method="post">
+<div class="form-group">
+  <label for="type">New Type</label>
+  <input id="type" name="type" type="text" placeholder="Women's">
+  <button type="submit" class="btn btn-success">Submit</button>
+</div>
+</form>
+
+<form action="/brands/$brand.getId()/update" method="post">
+  <div class="form-group">
+    <label for="color">New Type</label>
+    <input id="color" name="color" type="text" placeholder="White">
+    <button type="submit" class="btn btn-success">Submit</button>
+  </div>
+  </form>
+
+
+<form action="/stores/$store.getId()/delete" method="post">
+ <button type="submit" class="btn btn-success">Delete this store</button>
 </form>

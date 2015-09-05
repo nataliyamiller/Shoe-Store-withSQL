@@ -120,11 +120,19 @@ import java.util.Set;
       String style = request.queryParams("style");
       String type = request.queryParams("type");
       String color = request.queryParams("color");
-      brand.update(brandName, style, type, color);
+
+      if (!(brandName == null)) {
+        brand.updateBrandName(brandName);
+      } else if (!(style == null)) {
+        brand.updateStyle(style);
+      } else if (!(type == null)) {
+        brand.updateType(type);
+      } else if (!(color == null)) {
+        brand.updateColor(color);
+      }
       response.redirect("/brands/" + brand.getId());
       return null;
     });
-
     post("/stores/:id/delete", (request, response) -> {
       Brand brand = Brand.find(Integer.parseInt(request.params(":id")));
       brand.delete();

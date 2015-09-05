@@ -82,18 +82,58 @@ public class Brand {
     }
   }
 
-  public void update(String brand_name, String style, String type, String color) {
+  public void updateBrandName(String brand_name) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE brands SET brand_name = :brand_name, style = :style, type = :type, color = :color WHERE id = :id";
+      String sql = "UPDATE brands SET brand_name = :brand_name WHERE id = :id";
       con.createQuery(sql)
         .addParameter("brand_name", brand_name)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
+  public void updateStyle(String style) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE brands SET style = :style WHERE id = :id";
+      con.createQuery(sql)
         .addParameter("style", style)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
+  public void updateType(String type) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE brands SET type = :type WHERE id = :id";
+      con.createQuery(sql)
         .addParameter("type", type)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
+  public void updateColor(String color) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE brands SET color = :color WHERE id = :id";
+      con.createQuery(sql)
         .addParameter("color", color)
         .addParameter("id", id)
         .executeUpdate();
-      }
     }
+  }
+
+  // public void update(String brand_name, String style, String type, String color) {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "UPDATE brands SET brand_name = :brand_name, style = :style, type = :type, color = :color WHERE id = :id";
+  //     con.createQuery(sql)
+  //       .addParameter("brand_name", brand_name)
+  //       .addParameter("style", style)
+  //       .addParameter("type", type)
+  //       .addParameter("color", color)
+  //       .addParameter("id", id)
+  //       .executeUpdate();
+  //     }
+  //   }
 
   public void addStore(Store store) {
     try(Connection con = DB.sql2o.open()) {

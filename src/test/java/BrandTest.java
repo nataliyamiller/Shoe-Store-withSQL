@@ -44,18 +44,15 @@ public class BrandTest {
   }
 
   @Test
-  public void update_changesStoreNameAddressAndPhoneNumberInDatabase_true() {
+  public void updateBrandName_changesBrandNameAInDatabase_true() {
     Brand myBrand = new Brand ("Nike", "Sport", "Women's", "Yellow");
     myBrand.save();
     String brandName = "Adidas";
-    String style = "Casual";
-    String type = "Men's";
-    String color = "black";
-    myBrand.update(brandName, style, type, color);
+    myBrand.updateBrandName(brandName);
     assertTrue(Brand.all().get(0).getBrandName().equals(brandName));
-    assertTrue(Brand.all().get(0).getStyle().equals(style));
-    assertTrue(Brand.all().get(0).getType().equals(type));
-    assertTrue(Brand.all().get(0).getColor().equals(color));
+    assertTrue(Brand.all().get(0).getStyle().equals("Sport"));
+    assertTrue(Brand.all().get(0).getType().equals("Women's"));
+    assertTrue(Brand.all().get(0).getColor().equals("Yellow"));
   }
 
   @Test

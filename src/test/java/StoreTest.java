@@ -44,14 +44,14 @@ public class StoreTest {
   }
 
   @Test
-  public void updateName_changesStoreNameInDatabase() {
+  public void updateName_changesStoreNameInDatabase_true() {
     Store myStore = new Store ("Target", "Portland, OR", "503-555-5555");
     myStore.save();
     String name = "Ross";
     myStore.updateName(name);
     assertTrue(Store.all().get(0).getName().equals(name));
-    assertEquals(Store.all().get(0).getAddress(), "Portland, OR");
-    assertEquals(Store.all().get(0).getPhoneNumber(), "503-555-5555");
+    assertTrue(Store.all().get(0).getAddress().equals("Portland, OR"));
+    assertTrue(Store.all().get(0).getPhoneNumber().equals("503-555-5555"));
   }
 
   @Test

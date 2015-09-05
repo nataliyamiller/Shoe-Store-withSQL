@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StoreTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2015-09-05T23:10:30" hostname="Nataliyas-MacBook-Pro.local" time="0.365">
+<testsuite name="StoreTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2015-09-05T23:44:35" hostname="Nataliyas-MacBook-Pro.local" time="0.37">
   <properties/>
-  <testcase name="save_savesStoreIntoDatabase_true" classname="StoreTest" time="0.024"/>
-  <testcase name="delete_deletesAllStoresAndListAssociation" classname="StoreTest" time="0.065"/>
-  <testcase name="addBrand_addsBrandToStore" classname="StoreTest" time="0.046"/>
+  <testcase name="save_savesStoreIntoDatabase_true" classname="StoreTest" time="0.027"/>
+  <testcase name="delete_deletesAllStoresAndListAssociation" classname="StoreTest" time="0.051"/>
+  <testcase name="addBrand_addsBrandToStore" classname="StoreTest" time="0.055"/>
   <testcase name="find_findsStoreInDatabase_true" classname="StoreTest" time="0.029"/>
-  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.017"/>
-  <testcase name="updateName_changesStoreNameInDatabase" classname="StoreTest" time="0.053"/>
-  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.01"/>
+  <testcase name="updateName_changesStoreNameInDatabase_true" classname="StoreTest" time="0.057"/>
+  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.018"/>
+  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.009"/>
   <testcase name="equals_returnTrueIfStoresAreTheSame" classname="StoreTest" time="0.01"/>
-  <testcase name="updateAddress_changesStoreAddressInDatabase" classname="StoreTest" time="0.051"/>
-  <testcase name="updatePhoneNumber_changesStorePhoneNumberInDatabase" classname="StoreTest" time="0.056"/>
+  <testcase name="updateAddress_changesStoreAddressInDatabase" classname="StoreTest" time="0.057"/>
+  <testcase name="updatePhoneNumber_changesStorePhoneNumberInDatabase" classname="StoreTest" time="0.054"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
