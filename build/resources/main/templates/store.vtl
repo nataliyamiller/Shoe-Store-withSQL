@@ -18,28 +18,20 @@
 
 <h3>Add a new shoe brand:</h3>
 
-<form action="/stores/$store.getId()" method="post">
-    <div class="form-group">
-      <label for="brand_name">Brand Name</label>
-      <input id="brand_name" name="brand_name" type="text" placeholder="Nike">
-    </div>
 
-    <div class="form-group">
-      <label for="style">Style</label>
-      <input id="style" name="style" type="text" placeholder="Sport">
-    </div>
-
-    <div class="form-group">
-      <label for="type">Type</label>
-      <input id="type" name="type" type="text" placeholder="Women's">
-    </div>
-
-    <div class="form-group">
-      <label for="color">Color</label>
-      <input id="color" name="color" type="text" placeholder="Yellow">
-    </div>
-    <button type="submit" class="btn btn-primary btn-lg">Add new brand</button>
+<form action='/stores/$store.getId()/addbrands' method='post'>
+    <input id="store_id" name="store_id" type="hidden" value="$store.getId()">
+    <label for="brand_id">Select a brand</label>
+    <select id='brand_id' name='brand_id' type='text'>
+      #foreach($brand in $brands)
+        <option value="$brand.getId()"> $brand.getBrandName $brand.getStyle() $brand.getType() $brand.getColor() </option>
+      #end
+    </select>
+    <button type='submit'>Add brand</button>
 </form>
+
+  <h4>Don't see the brand you like in the list? Add a completely new brand<a href='/brands'>Add new brands</a></h4>
+
 
 
 <h4>Update this store information:</h4>

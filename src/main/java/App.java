@@ -55,7 +55,7 @@ import java.util.Set;
       int id = Integer.parseInt(request.params("id"));
       Store savedStore = Store.find(id);
       model.put("store", savedStore);
-      model.put("brands", savedStore.getBrands());
+      model.put("brands", Brand.all());
       model.put("template", "templates/store.vtl");
       return new ModelAndView(model, layout);
     }, engine);
@@ -64,10 +64,31 @@ import java.util.Set;
       int id = Integer.parseInt(request.params("id"));
       Brand savedBrand = Brand.find(id);
       model.put("brand", savedBrand);
+
       model.put("stores", savedBrand.getStores());
       model.put("template", "templates/brand.vtl");
       return new ModelAndView(model, layout);
     }, engine);
+
+    post("stores/:id/addbrands", (request, response) -> {
+        int brandId = Integer.parseInt(request.queryParams("brand_id"));
+        int storeId = Integer.parseInt(request.queryParams("store_id"));
+        Store store = Store.find(storeId);
+        Brand brand = Brand.find(brandId);
+        store.addBrand(brand);
+        response.redirect("/stores/" + storeId);
+        return null;
+    });
+
+    post("stores/:id/update", (request, response) -> {
+      Store store = Store.find(Integer.parseInt(request.params(":id")));
+      String name = request.queryParams("name");
+      String address = request.queryParams("address");
+      String phoneNumber = request.queryParams("phone_number");
+      store.update(name, address, phoneNumber);
+      response.redirect("/stores/" + store.getId());
+      return null;
+    });
 
 
   }
