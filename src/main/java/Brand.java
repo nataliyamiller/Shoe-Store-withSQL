@@ -125,4 +125,19 @@ public class Brand {
     }
   }
 
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String deleteQuery = "DELETE FROM brands WHERE id = :id;";
+      con.createQuery(deleteQuery)
+        .addParameter("id", id)
+        .executeUpdate();
+
+      String joinDeleteQuery = "DELETE FROM stores_brands WHERE brand_id = :brand_id";
+        con.createQuery(joinDeleteQuery)
+          .addParameter("brand_id", this.getId())
+          .executeUpdate();
+    }
+  }
+
+
 }

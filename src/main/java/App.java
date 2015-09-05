@@ -84,7 +84,7 @@ import java.util.Set;
     post("/stores/:id/delete", (request, response) -> {
       Store store = Store.find(Integer.parseInt(request.params(":id")));
       store.delete();
-      response.redirect("/");
+      response.redirect("/stores");
       return null;
     });
 
@@ -117,6 +117,14 @@ import java.util.Set;
       response.redirect("/brands/" + brand.getId());
       return null;
     });
+
+    post("/stores/:id/delete", (request, response) -> {
+      Brand brand = Brand.find(Integer.parseInt(request.params(":id")));
+      brand.delete();
+      response.redirect("/brands");
+      return null;
+    });
+
 
 
 

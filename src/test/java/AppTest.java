@@ -96,7 +96,7 @@ public class AppTest extends FluentTest{
     myStore.save();
     Store savedStore = Store.find(myStore.getId());
     savedStore.delete();
-    String deletedStorePath = String.format("http://localhost:4567");
+    String deletedStorePath = String.format("http://localhost:4567/stores");
     goTo(deletedStorePath);
     assertThat(!(pageSource()).contains("Target"));
   }
@@ -131,6 +131,17 @@ public class AppTest extends FluentTest{
     String updatedBrandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
     goTo(updatedBrandPath);
     assertThat(pageSource()).contains("Welcome to New Brand brand page");
+  }
+
+  @Test
+  public void delete_DeletesBrandFromDatabaseBrandNoLongerDisplayed() {
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    Brand savedBrand = Brand.find(myBrand.getId());
+    savedBrand.delete();
+    String deletedBrandPath = String.format("http://localhost:4567/brands");
+    goTo(deletedBrandPath);
+    assertThat(!(pageSource()).contains("Target"));
   }
 
 
