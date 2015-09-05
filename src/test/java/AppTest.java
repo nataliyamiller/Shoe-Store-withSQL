@@ -35,12 +35,27 @@ public class AppTest extends FluentTest{
   }
 
   @Test
+  public void formForAddingBrandsIsDisplayed() {
+    goTo("http://localhost:4567/brands");
+    assertThat(pageSource()).contains("Add a new brand");
+  }
+
+  @Test
   public void storeIsSavedToDatabaseAndDisplayedOnTheStoresPage() {
     Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
     myStore.save();
     String storePath = ("http://localhost:4567/stores");
     goTo(storePath);
     assertThat(pageSource()).contains("Target", "Portland, OR", "503-555-5555");
+  }
+
+  @Test
+  public void brandIsSavedToDatabaseAndDisplayedOnTheBrandsPage() {
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    String brandPath = ("http://localhost:4567/brands");
+    goTo(brandPath);
+    assertThat(pageSource()).contains("Nike", "Sport", "Women's", "Yellow");
   }
 
   @Test
@@ -52,10 +67,5 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Welcome to Target page");
   }
 
-  @Test
-  public void formForAddingBrandsIsDisplayed() {
-    goTo("http://localhost:4567/brands");
-    assertThat(pageSource()).contains("Add a new brand");
-  }
 
 }
