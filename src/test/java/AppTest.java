@@ -79,6 +79,19 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Nike", "Sport", "Women's", "Yellow");
   }
 
+  @Test
+  public void updateName_UpdatesOnlyStoreNameAndKeepsAddressAndPhoneNumberUnchanged() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+    Store savedStore = Store.find(myStore.getId());
+    savedStore.updateName("New Store");
+    String updatedStorePath = String.format("http://localhost:4567/stores/%d", myStore.getId());
+    goTo(updatedStorePath);
+    assertThat(pageSource()).contains("Welcome to New Store page");
+    assertThat(pageSource()).contains("Store address: Portland, OR");
+    assertThat(pageSource()).contains("Store phone number: 503-555-5555");
+  }
+
   // @Test
   // public void update_UpdatesAndDisplaysUpdatedStoreInformation() {
   //   Store myStore = new Store("Target", "Portland, OR", "503-555-5555");

@@ -73,22 +73,8 @@ public class StoreTest {
     myStore.updatePhoneNumber(phoneNumber);
     assertEquals(Store.all().get(0).getName(), "Target");
     assertEquals(Store.all().get(0).getAddress(), "Portland, OR");
-    assertTrue(Store.all().get(0).getPhoneNumber().equals(phoneNumber)); 
+    assertTrue(Store.all().get(0).getPhoneNumber().equals(phoneNumber));
   }
-
-
-  // @Test
-  // public void update_changesStoreNameAddressAndPhoneNumberInDatabase_true() {
-  //   Store myStore = new Store ("Target", "Portland, OR", "503-555-5555");
-  //   myStore.save();
-  //   String name = "Ross";
-  //   String address = "Tigard, OR";
-  //   String phoneNumber = "971-222-3333";
-  //   myStore.update(name, address, phoneNumber);
-  //   assertTrue(Store.all().get(0).getName().equals(name));
-  //   assertTrue(Store.all().get(0).getAddress().equals(address));
-  //   assertTrue(Store.all().get(0).getPhoneNumber().equals(phoneNumber));
-  // }
 
   @Test
   public void addBrand_addsBrandToStore() {
