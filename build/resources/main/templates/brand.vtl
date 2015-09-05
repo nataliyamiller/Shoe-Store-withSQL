@@ -1,0 +1,63 @@
+<h1>Welcome to $brand.getBrandName() brand page</h1>
+<h4>Style: $brand.getStyle()</h4>
+<h4>Type: $brand.getType()</h4>
+<h4>Color: $brand.getColor()</h4>
+
+#if($stores.size() != 0 )
+<h2>You can find this brand in the following stores :</h2>
+  <ol>
+    #foreach($store in $stores)
+      <li>Store name: <a href="/stores/$store.getId()/edit">$store.getName()</a>,
+      Address: <a href:="/stores/$store.getId()/edit">$store.getAddress()</a>,
+      Phone number: <a href:="/stores/$store.getId()/edit">$store.getPhoneNumber()</a></li>
+      #end
+  </ol>
+#else
+  <h2>Currently there are no stores that carry this brand. Add this brand to the first store! </h2>
+#end
+
+<h3>Add $brand.getBrandName() to a store:</h3>
+
+<form action="/brands/$brand.getId()" method="post">
+    <div class="form-group">
+      <label for="name">Store Name</label>
+      <input id="name" name="name" type="text" placeholder="Awesome store">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input id="address" name="address" type="text" placeholder="Portland, OR">
+    </div>
+
+    <div class="form-group">
+      <label for="phone_number">Phone number</label>
+      <input id="phone_number" name="phone_number" type="text" placeholder="503-555-5555">
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Add brand to store</button>
+</form>
+
+
+<h4>Update this brand information:</h4>
+
+<form action="/brands/$brand.getId()" method="post">
+  <div class="form-group">
+    <label for="brand_name">New brand name</label>
+    <input id="brand_name" name="brand_name" type="text" placeholder="Nike">
+  </div>
+
+  <div class="form-group">
+    <label for="style">Style</label>
+    <input id="style" name="style" type="text" placeholder="Sport">
+  </div>
+
+  <div class="form-group">
+    <label for="type">Type</label>
+    <input id="type" name="type" type="text" placeholder="Women's">
+  </div>
+
+  <div class="form-group">
+    <label for="color">Type</label>
+    <input id="color" name="color" type="text" placeholder="Yellow">
+  </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>

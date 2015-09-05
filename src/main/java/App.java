@@ -24,6 +24,12 @@ import java.util.Set;
       return new ModelAndView(model, layout);
     }, engine);
 
+    get("/brands", (request, response) -> {
+      model.put("brands", Brand.all());
+      model.put("template", "templates/brands.vtl");
+      return new ModelAndView(model, layout);
+    }, engine);
+
     post("/stores", (request, response) -> {
       String name = request.queryParams("name");
       String address = request.queryParams("address");
@@ -31,6 +37,17 @@ import java.util.Set;
       Store newStore = new Store(name, address, phoneNumber);
       newStore.save();
       response.redirect("/stores");
+      return null;
+    }, engine);
+
+    post("/brands", (request, response) -> {
+      String brandName = request.queryParams("brand_name");
+      String style = request.queryParams("style");
+      String type = request.queryParams("type");
+      String color = request.queryParams("color");
+      Brand newBrand = new Brand(brandName, style, type, color);
+      newBrand.save();
+      response.redirect("/brands");
       return null;
     }, engine);
 
@@ -43,11 +60,15 @@ import java.util.Set;
       return new ModelAndView(model, layout);
     }, engine);
 
-    get("/brands", (request, response) -> {
-      model.put("brands", Brand.all());
-      model.put("template", "templates/brands.vtl");
+    get("/brands/:id", (request, response) -> {
+      int id = Integer.parseInt(request.params("id"));
+      Brand savedBrand = Brand.find(id);
+      model.put("brand", savedBrand);
+      model.put("stores", savedBrand.getStores());
+      model.put("template", "templates/brand.vtl");
       return new ModelAndView(model, layout);
     }, engine);
+
 
   }
 }

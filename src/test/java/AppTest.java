@@ -59,12 +59,21 @@ public class AppTest extends FluentTest{
   }
 
   @Test
-  public void storetIsDisplayedOnItsPage() {
+  public void storeIsDisplayedOnItsPage() {
     Store myStore = new Store("Target", "Portland, OR", "503-555-5555");;
     myStore.save();
     String storePath = String.format("http://localhost:4567/stores/%d", myStore.getId());
     goTo(storePath);
     assertThat(pageSource()).contains("Welcome to Target page");
+  }
+
+  @Test
+  public void brandIsDisplayedOnItsPage() {
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");;
+    myBrand.save();
+    String brandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
+    goTo(brandPath);
+    assertThat(pageSource()).contains("Welcome to Nike brand page");
   }
 
 
