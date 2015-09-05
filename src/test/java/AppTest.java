@@ -99,5 +99,17 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Welcome to New Store page");
   }
 
+  @Test
+  public void delete_DeletesStoreFromDatabaseStoreNoLongerDisplayed() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+    Store savedStore = Store.find(myStore.getId());
+    savedStore.delete();
+    String deletedStorePath = String.format("http://localhost:4567");
+    goTo(deletedStorePath);
+    assertThat(!(pageSource()).contains("Target"));
+  }
+
+
 
 }

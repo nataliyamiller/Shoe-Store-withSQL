@@ -90,6 +90,13 @@ import java.util.Set;
       return null;
     });
 
+    post("/stores/:id/delete", (request, response) -> {
+      Store store = Store.find(Integer.parseInt(request.params(":id")));
+      store.delete();
+      response.redirect("/");
+      return null;
+    });
+
 
   }
 }
