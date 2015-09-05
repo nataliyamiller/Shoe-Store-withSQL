@@ -107,6 +107,17 @@ import java.util.Set;
       return null;
     });
 
+    post("brands/:id/update", (request, response) -> {
+      Brand brand = Brand.find(Integer.parseInt(request.params(":id")));
+      String brandName = request.queryParams("brand_name");
+      String style = request.queryParams("style");
+      String type = request.queryParams("type");
+      String color = request.queryParams("color");
+      brand.update(brandName, style, type, color);
+      response.redirect("/brands/" + brand.getId());
+      return null;
+    });
+
 
 
   }

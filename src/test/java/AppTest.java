@@ -122,6 +122,18 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Target", "Portland, OR", "503-555-5555");
   }
 
+  @Test
+  public void update_UpdatesAndDisplaysUpdatedBrandInformation() {
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    Brand savedBrand = Brand.find(myBrand.getId());
+    savedBrand.update("New Brand", "New Style", "New Type", "New Color");
+    String updatedBrandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
+    goTo(updatedBrandPath);
+    assertThat(pageSource()).contains("Welcome to New Brand brand page");
+  }
+
+
 
 
 }
