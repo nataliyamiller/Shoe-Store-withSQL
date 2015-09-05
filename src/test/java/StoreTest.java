@@ -44,13 +44,38 @@ public class StoreTest {
   }
 
   @Test
-  public void updateName_changesStoreNameInDatabase_true() {
+  public void updateName_changesStoreNameInDatabase() {
     Store myStore = new Store ("Target", "Portland, OR", "503-555-5555");
     myStore.save();
     String name = "Ross";
     myStore.updateName(name);
     assertTrue(Store.all().get(0).getName().equals(name));
+    assertEquals(Store.all().get(0).getAddress(), "Portland, OR");
+    assertEquals(Store.all().get(0).getPhoneNumber(), "503-555-5555");
   }
+
+  @Test
+  public void updateAddress_changesStoreAddressInDatabase() {
+    Store myStore = new Store ("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+    String address = "Bend, OR";
+    myStore.updateAddress(address);
+    assertEquals(Store.all().get(0).getName(), "Target");
+    assertTrue(Store.all().get(0).getAddress().equals(address));
+    assertEquals(Store.all().get(0).getPhoneNumber(), "503-555-5555");
+  }
+
+  @Test
+  public void updatePhoneNumber_changesStorePhoneNumberInDatabase() {
+    Store myStore = new Store ("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+    String phoneNumber = "971-222-5555";
+    myStore.updatePhoneNumber(phoneNumber);
+    assertEquals(Store.all().get(0).getName(), "Target");
+    assertEquals(Store.all().get(0).getAddress(), "Portland, OR");
+    assertTrue(Store.all().get(0).getPhoneNumber().equals(phoneNumber)); 
+  }
+
 
   // @Test
   // public void update_changesStoreNameAddressAndPhoneNumberInDatabase_true() {
