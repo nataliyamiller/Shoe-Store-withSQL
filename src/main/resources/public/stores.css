@@ -21,7 +21,7 @@ h1 {
   display: none;
 }
 
-/*.well {
+.well {
   font-family: cursive;
   font-weight: bold;
   font-size: 45px;
@@ -29,7 +29,12 @@ h1 {
   padding: 10px;
 }
 
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
 .table>tbody>tr>td {
   border-spacing: 1px;
   padding: 5px;
-}*/
+}

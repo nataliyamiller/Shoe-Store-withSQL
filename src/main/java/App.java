@@ -76,7 +76,14 @@ import java.util.Set;
       String name = request.queryParams("name");
       String address = request.queryParams("address");
       String phoneNumber = request.queryParams("phone_number");
-      store.update(name, address, phoneNumber);
+
+      if (!(name == null)) {
+        store.updateName(name);
+      } else if (!(address == null)) {
+        store.updateAddress(address);
+      } else if (!(phoneNumber == null)) {
+        store.updatePhoneNumber(phoneNumber);
+      }
       response.redirect("/stores/" + store.getId());
       return null;
     });

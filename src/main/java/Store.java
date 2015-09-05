@@ -72,17 +72,35 @@ public class Store {
       }
     }
 
-  public void update(String name, String address, String phone_number) {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE stores SET name = :name, address = :address, phone_number = :phone_number WHERE id = :id";
-      con.createQuery(sql)
-        .addParameter("name", name)
-        .addParameter("address", address)
-        .addParameter("phone_number", phone_number)
-        .addParameter("id", id)
-        .executeUpdate();
-        }
-      }
+public void updateName(String name) {
+  try(Connection con = DB.sql2o.open()) {
+    String sql = "UPDATE stores SET name = :name WHERE id = :id";
+    con.createQuery(sql)
+      .addParameter("name", name)
+      .addParameter("id", id)
+      .executeUpdate();
+  }
+}
+
+public void updateAddress(String address) {
+  try(Connection con = DB.sql2o.open()) {
+    String sql = "UPDATE stores SET address = :address WHERE id = :id";
+    con.createQuery(sql)
+      .addParameter("address", address)
+      .addParameter("id", id)
+      .executeUpdate();
+  }
+}
+
+public void updatePhoneNumber(String phone_number) {
+  try(Connection con = DB.sql2o.open()) {
+    String sql = "UPDATE stores SET phone_number = :phone_number WHERE id = :id";
+    con.createQuery(sql)
+      .addParameter("phone_number", phone_number)
+      .addParameter("id", id)
+      .executeUpdate();
+  }
+}
 
   public void addBrand(Brand brand) {
     try(Connection con = DB.sql2o.open()) {
