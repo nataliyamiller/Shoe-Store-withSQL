@@ -24,19 +24,19 @@
     <label for="brand_id">Select a brand</label>
     <select id='brand_id' name='brand_id' type='text'>
       #foreach($brand in $brands)
-        <option value="$brand.getId()"> $brand.getBrandName $brand.getStyle() $brand.getType() $brand.getColor() </option>
+        <option value="$brand.getId()"> $brand.getBrandName() $brand.getStyle() $brand.getType() $brand.getColor() </option>
       #end
     </select>
     <button type='submit'>Add brand</button>
 </form>
 
-  <h4>Don't see the brand you like in the list? Add a completely new brand<a href='/brands'>Add new brands</a></h4>
+  <h4>Don't see the brand you like in the list? Add a completely new brand<a href='/brands'> here</a></h4>
 
 
 
 <h4>Update this store information:</h4>
 
-<form action="/stores/$store.getId()" method="post">
+<form action="/stores/$store.getId()/update" method="post">
   <div class="form-group">
     <label for="name">New store name</label>
     <input id="name" name="name" type="text" placeholder="Marchalls">

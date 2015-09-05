@@ -88,16 +88,16 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Nike", "Sport", "Women's", "Yellow");
   }
 
-  // @Test
-  // public void update_UpdatesAndDisplaysUpdatedStoreInformation() {
-  //   Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
-  //   myStore.save();
-  //   Store savedStore = Store.find(myStore.getId());
-  //   savedStore.update("New Store", "Beaverton, OR", "503-222-2222");
-  //   String updatedStorePath = String.format("http://localhost:4567/stores/%d/brands", myStore.getId());
-  //   goTo(updatedStorePath);
-  //   assertThat(pageSource()).contains("Target", "Portland, OR", "503-555-5555");
-  // }
+  @Test
+  public void update_UpdatesAndDisplaysUpdatedStoreInformation() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+    Store savedStore = Store.find(myStore.getId());
+    savedStore.update("New Store", "Beaverton, OR", "503-222-2222");
+    String updatedStorePath = String.format("http://localhost:4567/stores/%d", myStore.getId());
+    goTo(updatedStorePath);
+    assertThat(pageSource()).contains("Welcome to New Store page");
+  }
 
 
 }
