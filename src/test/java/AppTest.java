@@ -118,17 +118,6 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Store phone number: 971-222-3355");
   }
 
-  // @Test
-  // public void update_UpdatesAndDisplaysUpdatedStoreInformation() {
-  //   Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
-  //   myStore.save();
-  //   Store savedStore = Store.find(myStore.getId());
-  //   savedStore.update("New Store", "Beaverton, OR", "503-222-2222");
-  //   String updatedStorePath = String.format("http://localhost:4567/stores/%d", myStore.getId());
-  //   goTo(updatedStorePath);
-  //   assertThat(pageSource()).contains("Welcome to New Store page");
-  // }
-
   @Test
   public void delete_DeletesStoreFromDatabaseStoreNoLongerDisplayed() {
     Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
