@@ -16,8 +16,7 @@
   <h2>There are currently no shoes at this store... Add the shoe brand to this store! </h2>
 #end
 
-<h3>Add a new shoe brand:</h3>
-
+<h3>Add a shoe brand to $store.getName():</h3>
 
 <form action='/stores/$store.getId()/addbrands' method='post'>
     <input id="store_id" name="store_id" type="hidden" value="$store.getId()">
@@ -30,9 +29,7 @@
     <button type='submit'>Add brand</button>
 </form>
 
-  <h4>Don't see the brand you like in the list? Add a completely new brand<a href='/brands'> here</a></h4>
-
-
+<h4>Don't see the brand you like in the list? Add a completely new brand<a href='/brands'> here</a></h4>
 
 <h4>Update this store information:</h4>
 

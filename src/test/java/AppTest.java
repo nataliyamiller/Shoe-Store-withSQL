@@ -68,15 +68,6 @@ public class AppTest extends FluentTest{
   }
 
   @Test
-  public void brandIsDisplayedOnItsPage() {
-    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");;
-    myBrand.save();
-    String brandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
-    goTo(brandPath);
-    assertThat(pageSource()).contains("Welcome to Nike brand page");
-  }
-
-
   public void brandIsAddedAndDisplayedOnStoresPage() {
     Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
     myStore.save();
@@ -108,6 +99,27 @@ public class AppTest extends FluentTest{
     String deletedStorePath = String.format("http://localhost:4567");
     goTo(deletedStorePath);
     assertThat(!(pageSource()).contains("Target"));
+  }
+
+  @Test
+  public void brandIsDisplayedOnItsPage() {
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");;
+    myBrand.save();
+    String brandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
+    goTo(brandPath);
+    assertThat(pageSource()).contains("Welcome to Nike brand page");
+  }
+
+  @Test
+  public void storeIsAddedAndDisplayedOnBrandsPage() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    myBrand.addStore(myStore);
+    String brandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
+    goTo(brandPath);
+    assertThat(pageSource()).contains("Target", "Portland, OR", "503-555-5555");
   }
 
 

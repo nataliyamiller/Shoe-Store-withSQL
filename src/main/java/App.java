@@ -7,27 +7,22 @@ import java.util.Arrays;
 import java.util.Set;
 
  public class App {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
     HashMap<String, Object> model = new HashMap<String, Object>();
+    ModelAndView view = new ModelAndView(model, layout);
     VelocityTemplateEngine engine = new VelocityTemplateEngine();
 
     get("/", (request, response) -> {
       model.put("template", "templates/index.vtl");
-      return new ModelAndView(model, layout);
+      return view;
     }, engine);
 
     get("/stores", (request, response) -> {
       model.put("stores", Store.all());
       model.put("template", "templates/stores.vtl");
-      return new ModelAndView(model, layout);
-    }, engine);
-
-    get("/brands", (request, response) -> {
-      model.put("brands", Brand.all());
-      model.put("template", "templates/brands.vtl");
-      return new ModelAndView(model, layout);
+      return view;
     }, engine);
 
     post("/stores", (request, response) -> {
@@ -38,6 +33,12 @@ import java.util.Set;
       newStore.save();
       response.redirect("/stores");
       return null;
+    }, engine);
+
+    get("/brands", (request, response) -> {
+      model.put("brands", Brand.all());
+      model.put("template", "templates/brands.vtl");
+      return view;
     }, engine);
 
     post("/brands", (request, response) -> {
@@ -57,27 +58,17 @@ import java.util.Set;
       model.put("store", savedStore);
       model.put("brands", Brand.all());
       model.put("template", "templates/store.vtl");
-      return new ModelAndView(model, layout);
-    }, engine);
-
-    get("/brands/:id", (request, response) -> {
-      int id = Integer.parseInt(request.params("id"));
-      Brand savedBrand = Brand.find(id);
-      model.put("brand", savedBrand);
-
-      model.put("stores", savedBrand.getStores());
-      model.put("template", "templates/brand.vtl");
-      return new ModelAndView(model, layout);
+      return view;
     }, engine);
 
     post("stores/:id/addbrands", (request, response) -> {
-        int brandId = Integer.parseInt(request.queryParams("brand_id"));
-        int storeId = Integer.parseInt(request.queryParams("store_id"));
-        Store store = Store.find(storeId);
-        Brand brand = Brand.find(brandId);
-        store.addBrand(brand);
-        response.redirect("/stores/" + storeId);
-        return null;
+      int brandId = Integer.parseInt(request.queryParams("brand_id"));
+      int storeId = Integer.parseInt(request.queryParams("store_id"));
+      Store store = Store.find(storeId);
+      Brand brand = Brand.find(brandId);
+      store.addBrand(brand);
+      response.redirect("/stores/" + storeId);
+      return null;
     });
 
     post("stores/:id/update", (request, response) -> {
@@ -96,6 +87,26 @@ import java.util.Set;
       response.redirect("/");
       return null;
     });
+
+    get("/brands/:id", (request, response) -> {
+      int id = Integer.parseInt(request.params("id"));
+      Brand savedBrand = Brand.find(id);
+      model.put("brand", savedBrand);
+      model.put("stores", savedBrand.getStores());
+      model.put("template", "templates/brand.vtl");
+      return view;
+    }, engine);
+
+    post("brands/:id/addstores", (request, response) -> {
+      int brandId = Integer.parseInt(request.queryParams("brand_id"));
+      int storeId = Integer.parseInt(request.queryParams("store_id"));
+      Store store = Store.find(storeId);
+      Brand brand = Brand.find(brandId);
+      brand.addStore(store);
+      response.redirect("/brands/" + brandId);
+      return null;
+    });
+
 
 
   }
