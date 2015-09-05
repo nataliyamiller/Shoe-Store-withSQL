@@ -80,7 +80,7 @@ public class AppTest extends FluentTest{
   }
 
   @Test
-  public void updateName_UpdatesOnlyStoreNameAndKeepsAddressAndPhoneNumberUnchanged() {
+  public void updateName_UpdatesOnlyStoreNameAndKeepsAddressAndPhoneNumberUntouched() {
     Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
     myStore.save();
     Store savedStore = Store.find(myStore.getId());
@@ -90,6 +90,32 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Welcome to New Store page");
     assertThat(pageSource()).contains("Store address: Portland, OR");
     assertThat(pageSource()).contains("Store phone number: 503-555-5555");
+  }
+
+  @Test
+  public void updateAddress_UpdatesOnlyStoreAddressAndKeepsNameAndPhoneNumberUntouched() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+    Store savedStore = Store.find(myStore.getId());
+    savedStore.updateAddress("Medford, OR");
+    String updatedStorePath = String.format("http://localhost:4567/stores/%d", myStore.getId());
+    goTo(updatedStorePath);
+    assertThat(pageSource()).contains("Welcome to Target page");
+    assertThat(pageSource()).contains("Store address: Medford, OR");
+    assertThat(pageSource()).contains("Store phone number: 503-555-5555");
+  }
+
+  @Test
+  public void updatePhoneNumber_UpdatesOnlyStorePhoneNumberAndKeepsNameAndAddressUntouched() {
+    Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
+    myStore.save();
+    Store savedStore = Store.find(myStore.getId());
+    savedStore.updatePhoneNumber("971-222-3355");
+    String updatedStorePath = String.format("http://localhost:4567/stores/%d", myStore.getId());
+    goTo(updatedStorePath);
+    assertThat(pageSource()).contains("Welcome to Target page");
+    assertThat(pageSource()).contains("Store address: Portland, OR");
+    assertThat(pageSource()).contains("Store phone number: 971-222-3355");
   }
 
   // @Test
