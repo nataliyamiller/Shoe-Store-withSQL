@@ -29,7 +29,7 @@ public class AppTest extends FluentTest{
   }
 
   @Test
-  public void stylistClientsFormIsDisplayed() {
+  public void formForAddingStoresIsDisplayed() {
     goTo("http://localhost:4567/stores");
     assertThat(pageSource()).contains("Add a new store");
   }
@@ -49,6 +49,13 @@ public class AppTest extends FluentTest{
     myStore.save();
     String storePath = String.format("http://localhost:4567/stores/%d", myStore.getId());
     goTo(storePath);
-    assertThat(pageSource()).contains("Welcome to Target's page");
+    assertThat(pageSource()).contains("Welcome to Target page");
   }
+
+  @Test
+  public void formForAddingBrandsIsDisplayed() {
+    goTo("http://localhost:4567/brands");
+    assertThat(pageSource()).contains("Add a new brand");
+  }
+
 }

@@ -1,40 +1,63 @@
-<h1>Welcome to $store.getName()'s page</h1>
+<h1>Welcome to $store.getName() page</h1>
 <h4>Store address: $store.getAddress()</h4>
 <h4>Store phone number: $store.getPhoneNumber()</h4>
 
-<!--#if($students.size() != 0)
-<h2>These students are currently enrolled in $course.getCourseName():</h2>
-  <h5>Please click on a student to update student's information or to remove them from this course:</h5>
-  <ul>
-    #foreach($student in $students)
-      <li><a href="/students/$student.getId()/update">$student.getName(), $student.getEnrollDate()</a></li>
+#if($brands.size() != 0)
+<h2>$store.getName() currently carries the following brands:</h2>
+  <ol>
+    #foreach($brand in $brands)
+      <li>Brand name: <a href="/brands/$brand.getId()/edit">$brand.getBrandName()</a>,
+      Style: <a href:="/brands/$brand.getId()/edit">$brand.getStyle()</a>,
+      Type: <a href:="/brands/$brand.getId()/edit">$brand.getType()</a>,
+      Color: <a href:="/brands/$brand.getId()/edit">$brand.getColor()</a></li>
     #end
-  </ul>
+  </ol>
 #else
-  <h2>No students are enrolled in this course yet. Add the first student!</h2>
+  <h2>There are currently no shoes at this store... Add the shoe brand to this store! </h2>
 #end
 
-<h3>Add a new student:</h3>
+<h3>Add a new shoe brand:</h3>
 
-<form action="/courses/$course.getId()" method="post">
+<form action="/stores/$store.getId()" method="post">
     <div class="form-group">
-      <label for="name">Student Name</label>
-      <input id="name" name="name" type="text" placeholder="Sophia Larm">
+      <label for="brand_name">Brand Name</label>
+      <input id="brand_name" name="brand_name" type="text" placeholder="Nike">
     </div>
 
     <div class="form-group">
-      <label for="enroll_date">Date of Enrollment</label>
-      <input id="enroll_date" name="enroll_date" type="text" placeholder="09/12/15">
+      <label for="style">Style</label>
+      <input id="style" name="style" type="text" placeholder="Sport">
     </div>
 
-    <button type="submit" class="btn btn-primary btn-lg">Add new student</button>
+    <div class="form-group">
+      <label for="type">Type</label>
+      <input id="type" name="type" type="text" placeholder="Women's">
+    </div>
+
+    <div class="form-group">
+      <label for="color">Color</label>
+      <input id="color" name="color" type="text" placeholder="Yellow">
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Add new brand</button>
 </form>
-<hr/>
 
-<h4>Update this course information:</h4>
 
-<form action="/courses/$course.getId()" method="post">
-  <label for="course_name">New Course name</label>
-  <input id="course_name" name="course_name" type="text" placeholder="Cool French Lit">
+<h4>Update this store information:</h4>
+
+<form action="/stores/$store.getId()" method="post">
+  <div class="form-group">
+    <label for="name">New store name</label>
+    <input id="name" name="name" type="text" placeholder="Marchalls">
+  </div>
+
+  <div class="form-group">
+    <label for="address">New address</label>
+    <input id="address" name="address" type="text" placeholder="Tigard, OR">
+  </div>
+
+  <div class="form-group">
+    <label for="phone_number">New phone number</label>
+    <input id="phone_number" name="phone_number" type="text" placeholder="503-333-3399">
+  </div>
   <button type="submit" class="btn btn-success">Submit</button>
-</form> -->
+</form>

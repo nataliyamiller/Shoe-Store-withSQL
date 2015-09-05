@@ -38,7 +38,14 @@ import java.util.Set;
       int id = Integer.parseInt(request.params("id"));
       Store savedStore = Store.find(id);
       model.put("store", savedStore);
+      model.put("brands", savedStore.getBrands());
       model.put("template", "templates/store.vtl");
+      return new ModelAndView(model, layout);
+    }, engine);
+
+    get("/brands", (request, response) -> {
+      model.put("brands", Brand.all());
+      model.put("template", "templates/brands.vtl");
       return new ModelAndView(model, layout);
     }, engine);
 
