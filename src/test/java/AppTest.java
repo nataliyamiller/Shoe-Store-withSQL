@@ -80,7 +80,7 @@ public class AppTest extends FluentTest{
   }
 
   @Test
-  public void updateName_UpdatesOnlyStoreNameAndKeepsAddressAndPhoneNumberUntouched() {
+  public void updateName_UpdatesOnlyStoreNameAndLeavesAddressAndPhoneNumberUntouched() {
     Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
     myStore.save();
     Store savedStore = Store.find(myStore.getId());
@@ -93,7 +93,7 @@ public class AppTest extends FluentTest{
   }
 
   @Test
-  public void updateAddress_UpdatesOnlyStoreAddressAndKeepsNameAndPhoneNumberUntouched() {
+  public void updateAddress_UpdatesOnlyStoreAddressAndLeavesNameAndPhoneNumberUntouched() {
     Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
     myStore.save();
     Store savedStore = Store.find(myStore.getId());
@@ -106,7 +106,7 @@ public class AppTest extends FluentTest{
   }
 
   @Test
-  public void updatePhoneNumber_UpdatesOnlyStorePhoneNumberAndKeepsNameAndAddressUntouched() {
+  public void updatePhoneNumber_UpdatesOnlyStorePhoneNumberAndLeavesNameAndAddressUntouched() {
     Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
     myStore.save();
     Store savedStore = Store.find(myStore.getId());
@@ -150,16 +150,19 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Target", "Portland, OR", "503-555-5555");
   }
 
-  // @Test
-  // public void update_UpdatesAndDisplaysUpdatedBrandInformation() {
-  //   Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
-  //   myBrand.save();
-  //   Brand savedBrand = Brand.find(myBrand.getId());
-  //   savedBrand.update("New Brand", "New Style", "New Type", "New Color");
-  //   String updatedBrandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
-  //   goTo(updatedBrandPath);
-  //   assertThat(pageSource()).contains("Welcome to New Brand brand page");
-  // }
+  @Test
+  public void updateBrandName_UpdatesOnlyBrandNameAndLeavesOtherBrandDataUntouched() {
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    Brand savedBrand = Brand.find(myBrand.getId());
+    savedBrand.updateBrandName("New Brand");
+    String updatedBrandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
+    goTo(updatedBrandPath);
+    assertThat(pageSource()).contains("Welcome to New Brand brand page");
+    assertThat(pageSource()).contains("Style: Sport");
+    assertThat(pageSource()).contains("Type: Women's");
+    assertThat(pageSource()).contains("Color: Yellow");
+  }
 
   @Test
   public void delete_DeletesBrandFromDatabaseBrandNoLongerDisplayed() {
