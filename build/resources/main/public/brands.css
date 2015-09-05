@@ -1,0 +1,35 @@
+.hidden {
+  display: none;
+}
+
+
+span {
+  color:red;
+}
+
+.inline {
+  display: inline-block;
+}
+
+
+img {
+  height: 100px;
+  width: 200px;
+}
+
+h1 {
+  display: none;
+}
+
+/*.well {
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 45px;
+  margin-top: 20px;
+  padding: 10px;
+}*/
+
+/*.table>tbody>tr>td {
+  border-spacing: 1px;
+  padding: 5px;
+}*/

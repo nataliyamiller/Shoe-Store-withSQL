@@ -1,16 +1,31 @@
-<h1 class="well">List of brands</h1>
+<link rel='stylesheet' href='/stores.css'>
+
+<h2 class="well">List of brands</h2>
+<h4>Click on brands' name to update or delete that brand<h4>
 
 #if($brands.size() != 0)
-  <ol>
+<table border="1" class="table table-striped">
+      <th>Brand Name</th>
+      <th>Style</th>
+      <th>Type</th>
+      <th>Color</th>
+
+  <tbody>
   #foreach ($brand in $brands)
-    <h4><li><a href="/brands/$brand.getId()">$brand.getBrandName(), $brand.getStyle(), $brand.getType(), $brand.getColor()</li></a></h4>
+  <tr>
+    <td><a href="/brands/$brand.getId()">$brand.getBrandName()</a></td>
+    <td><a href="/brands/$brand.getId()">$brand.getStyle()</a></td>
+    <td><a href="/brands/$brand.getId()">$brand.getType()</a></td>
+    <td><a href="/brands/$brand.getId()">$brand.getColor()</a></td>
+  </tr>
   #end
-  </ol>
+</tbody>
+</table>
   #else
   <p>This list of brands is currently empty, add the first brand!</p>
 #end
 
-<hr/>
+
 
 <h3>Add a new brand</h3>
   <form action="/brands" method="post">

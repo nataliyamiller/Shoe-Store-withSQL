@@ -1,16 +1,29 @@
-<h1 class="well">List of Stores</h1>
+<link rel='stylesheet' href='/stores.css'>
+
+<h2 class="well">List of Stores</h2>
+<h4>Click on store's name to update or delete that store</h4>
 
 #if($stores.size() != 0)
-  <ol>
+<table border="1" class="table table-striped">
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+
+  <tbody>
   #foreach ($store in $stores)
-    <h4><li><a href="/stores/$store.getId()">$store.getName(), $store.getAddress(), $store.getPhoneNumber()</li></a></h4>
+  <tr>
+    <td><a href="/stores/$store.getId()">$store.getName()</a></td>
+    <td><a href="/stores/$store.getId()">$store.getAddress()</a></td>
+    <td><a href="/stores/$store.getId()">$store.getPhoneNumber()</a></td>
+  </tr>
   #end
-  </ol>
+</tbody>
+</table>
   #else
   <p>This list of stores is currently empty, add the first store!</p>
 #end
 
-<hr/>
+
 
 <h3>Add a new store</h3>
   <form action="/stores" method="post">

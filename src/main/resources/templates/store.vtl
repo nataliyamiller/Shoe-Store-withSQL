@@ -1,11 +1,11 @@
-<h1>Welcome to $store.getName() page</h1>
-<h4>Store address: $store.getAddress()</h4>
-<h4>Store phone number: $store.getPhoneNumber()</h4>
+<h2>Welcome to $store.getName() page</h2>
+<h5>Store address: $store.getAddress()</h5>
+<h5>Store phone number: $store.getPhoneNumber()</h5>
 
-#if($brands.size() != 0)
+#if($store.getBrands().size() != 0)
 <h2>$store.getName() currently carries the following brands:</h2>
   <ol>
-    #foreach($brand in $brands)
+    #foreach($brand in $store.getBrands())
       <li>Brand name: <a href="/brands/$brand.getId()/edit">$brand.getBrandName()</a>,
       Style: <a href:="/brands/$brand.getId()/edit">$brand.getStyle()</a>,
       Type: <a href:="/brands/$brand.getId()/edit">$brand.getType()</a>,
@@ -13,7 +13,7 @@
     #end
   </ol>
 #else
-  <h2>There are currently no shoes at this store... Add the shoe brand to this store! </h2>
+  <h4>Currently there are no any brands at this store... Add the shoe brand to this store! </h4>
 #end
 
 <h3>Add a shoe brand to $store.getName():</h3>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StoreTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2015-09-05T18:40:04" hostname="Nataliyas-MacBook-Pro.local" time="0.264">
+<testsuite name="StoreTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2015-09-05T19:25:37" hostname="Nataliyas-MacBook-Pro.local" time="0.269">
   <properties/>
-  <testcase name="save_savesStoreIntoDatabase_true" classname="StoreTest" time="0.027"/>
-  <testcase name="delete_deletesAllStoresAndListAssociation" classname="StoreTest" time="0.062"/>
-  <testcase name="addBrand_addsBrandToStore" classname="StoreTest" time="0.052"/>
+  <testcase name="save_savesStoreIntoDatabase_true" classname="StoreTest" time="0.026"/>
+  <testcase name="delete_deletesAllStoresAndListAssociation" classname="StoreTest" time="0.064"/>
+  <testcase name="addBrand_addsBrandToStore" classname="StoreTest" time="0.051"/>
   <testcase name="find_findsStoreInDatabase_true" classname="StoreTest" time="0.026"/>
-  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.018"/>
-  <testcase name="update_changesStoreNameAddressAndPhoneNumberInDatabase_true" classname="StoreTest" time="0.058"/>
-  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.01"/>
-  <testcase name="equals_returnTrueIfStoresAreTheSame" classname="StoreTest" time="0.008"/>
+  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.019"/>
+  <testcase name="update_changesStoreNameAddressAndPhoneNumberInDatabase_true" classname="StoreTest" time="0.055"/>
+  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.011"/>
+  <testcase name="equals_returnTrueIfStoresAreTheSame" classname="StoreTest" time="0.011"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
