@@ -165,6 +165,48 @@ public class AppTest extends FluentTest{
   }
 
   @Test
+  public void updateStyle_UpdatesOnlyStyleAndLeavesOtherBrandDataUntouched() {
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    Brand savedBrand = Brand.find(myBrand.getId());
+    savedBrand.updateStyle("Wedding");
+    String updatedBrandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
+    goTo(updatedBrandPath);
+    assertThat(pageSource()).contains("Welcome to Nike brand page");
+    assertThat(pageSource()).contains("Style: Wedding");
+    assertThat(pageSource()).contains("Type: Women's");
+    assertThat(pageSource()).contains("Color: Yellow");
+  }
+
+  @Test
+  public void updateType_UpdatesOnlyTypeAndLeavesOtherBrandDataUntouched() {
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    Brand savedBrand = Brand.find(myBrand.getId());
+    savedBrand.updateType("Men's");
+    String updatedBrandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
+    goTo(updatedBrandPath);
+    assertThat(pageSource()).contains("Welcome to Nike brand page");
+    assertThat(pageSource()).contains("Style: Sport");
+    assertThat(pageSource()).contains("Type: Men's");
+    assertThat(pageSource()).contains("Color: Yellow");
+  }
+
+  @Test
+  public void updateColor_UpdatesOnlyColorAndLeavesOtherBrandDataUntouched() {
+    Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    Brand savedBrand = Brand.find(myBrand.getId());
+    savedBrand.updateColor("White");
+    String updatedBrandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
+    goTo(updatedBrandPath);
+    assertThat(pageSource()).contains("Welcome to Nike brand page");
+    assertThat(pageSource()).contains("Style: Sport");
+    assertThat(pageSource()).contains("Type: Women's");
+    assertThat(pageSource()).contains("Color: White");
+  }
+
+  @Test
   public void delete_DeletesBrandFromDatabaseBrandNoLongerDisplayed() {
     Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
     myBrand.save();
