@@ -44,7 +44,7 @@ public class BrandTest {
   }
 
   @Test
-  public void updateBrandName_changesBrandNameAInDatabase_true() {
+  public void updateBrandName_changesOnlyBrandNameInDatabase_true() {
     Brand myBrand = new Brand ("Nike", "Sport", "Women's", "Yellow");
     myBrand.save();
     String brandName = "Adidas";
@@ -53,6 +53,42 @@ public class BrandTest {
     assertTrue(Brand.all().get(0).getStyle().equals("Sport"));
     assertTrue(Brand.all().get(0).getType().equals("Women's"));
     assertTrue(Brand.all().get(0).getColor().equals("Yellow"));
+  }
+
+  @Test
+  public void updateStyle_changesOnlyBrandStyleInDatabase_true() {
+    Brand myBrand = new Brand ("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    String style = "Casual";
+    myBrand.updateStyle(style);
+    assertTrue(Brand.all().get(0).getBrandName().equals("Nike"));
+    assertTrue(Brand.all().get(0).getStyle().equals(style));
+    assertTrue(Brand.all().get(0).getType().equals("Women's"));
+    assertTrue(Brand.all().get(0).getColor().equals("Yellow"));
+  }
+
+  @Test
+  public void updateType_changesOnlyBrandTypeAInDatabase_true() {
+    Brand myBrand = new Brand ("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    String type = "Kid's";
+    myBrand.updateType(type);
+    assertTrue(Brand.all().get(0).getBrandName().equals("Nike"));
+    assertTrue(Brand.all().get(0).getStyle().equals("Sport"));
+    assertTrue(Brand.all().get(0).getType().equals(type));
+    assertTrue(Brand.all().get(0).getColor().equals("Yellow"));
+  }
+
+  @Test
+  public void updateColor_changesOnlyBrandColorAInDatabase_true() {
+    Brand myBrand = new Brand ("Nike", "Sport", "Women's", "Yellow");
+    myBrand.save();
+    String color = "White";
+    myBrand.updateColor(color);
+    assertTrue(Brand.all().get(0).getBrandName().equals("Nike"));
+    assertTrue(Brand.all().get(0).getStyle().equals("Sport"));
+    assertTrue(Brand.all().get(0).getType().equals("Women's"));
+    assertTrue(Brand.all().get(0).getColor().equals("White"));
   }
 
   @Test

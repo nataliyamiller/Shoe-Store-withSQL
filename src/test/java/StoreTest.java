@@ -44,7 +44,7 @@ public class StoreTest {
   }
 
   @Test
-  public void updateName_changesStoreNameInDatabase_true() {
+  public void updateName_changesOnlyStoreNameInDatabase_true() {
     Store myStore = new Store ("Target", "Portland, OR", "503-555-5555");
     myStore.save();
     String name = "Ross";
@@ -55,7 +55,7 @@ public class StoreTest {
   }
 
   @Test
-  public void updateAddress_changesStoreAddressInDatabase() {
+  public void updateAddress_changesOnlyStoreAddressInDatabase() {
     Store myStore = new Store ("Target", "Portland, OR", "503-555-5555");
     myStore.save();
     String address = "Bend, OR";
@@ -66,7 +66,7 @@ public class StoreTest {
   }
 
   @Test
-  public void updatePhoneNumber_changesStorePhoneNumberInDatabase() {
+  public void updatePhoneNumber_changesOnlyStorePhoneNumberInDatabase() {
     Store myStore = new Store ("Target", "Portland, OR", "503-555-5555");
     myStore.save();
     String phoneNumber = "971-222-5555";
