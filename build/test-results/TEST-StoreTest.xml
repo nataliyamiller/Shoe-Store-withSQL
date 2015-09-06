@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StoreTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2015-09-06T00:08:43" hostname="Nataliyas-MacBook-Pro.local" time="0.413">
+<testsuite name="StoreTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2015-09-06T00:11:34" hostname="Nataliyas-MacBook-Pro.local" time="0.403">
   <properties/>
-  <testcase name="save_savesStoreIntoDatabase_true" classname="StoreTest" time="0.026"/>
-  <testcase name="delete_deletesAllStoresAndListAssociation" classname="StoreTest" time="0.084"/>
-  <testcase name="addBrand_addsBrandToStore" classname="StoreTest" time="0.066"/>
-  <testcase name="find_findsStoreInDatabase_true" classname="StoreTest" time="0.029"/>
-  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.025"/>
-  <testcase name="updateAddress_changesOnlyStoreAddressInDatabase" classname="StoreTest" time="0.052"/>
-  <testcase name="updatePhoneNumber_changesOnlyStorePhoneNumberInDatabase" classname="StoreTest" time="0.048"/>
-  <testcase name="updateName_changesOnlyStoreNameInDatabase_true" classname="StoreTest" time="0.06"/>
-  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.01"/>
-  <testcase name="equals_returnTrueIfStoresAreTheSame" classname="StoreTest" time="0.009"/>
+  <testcase name="save_savesStoreIntoDatabase_true" classname="StoreTest" time="0.033"/>
+  <testcase name="delete_deletesAllStoresAndListAssociation" classname="StoreTest" time="0.056"/>
+  <testcase name="addBrand_addsBrandToStore" classname="StoreTest" time="0.047"/>
+  <testcase name="find_findsStoreInDatabase_true" classname="StoreTest" time="0.025"/>
+  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.018"/>
+  <testcase name="updateAddress_changesOnlyStoreAddressInDatabase" classname="StoreTest" time="0.065"/>
+  <testcase name="updatePhoneNumber_changesOnlyStorePhoneNumberInDatabase" classname="StoreTest" time="0.09"/>
+  <testcase name="updateName_changesOnlyStoreNameInDatabase_true" classname="StoreTest" time="0.051"/>
+  <testcase name="store_instantiatesCorrectly_true" classname="StoreTest" time="0.008"/>
+  <testcase name="equals_returnTrueIfStoresAreTheSame" classname="StoreTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

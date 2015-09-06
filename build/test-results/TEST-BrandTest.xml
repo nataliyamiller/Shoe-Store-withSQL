@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BrandTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2015-09-06T00:08:43" hostname="Nataliyas-MacBook-Pro.local" time="0.418">
+<testsuite name="BrandTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2015-09-06T00:11:33" hostname="Nataliyas-MacBook-Pro.local" time="0.44">
   <properties/>
-  <testcase name="equals_returnTrueIfBrandsAreTheSame" classname="BrandTest" time="0.009"/>
-  <testcase name="updateBrandName_changesOnlyBrandNameInDatabase_true" classname="BrandTest" time="0.064"/>
-  <testcase name="save_savesBrandIntoDatabase_true" classname="BrandTest" time="0.03"/>
-  <testcase name="updateStyle_changesOnlyBrandStyleInDatabase_true" classname="BrandTest" time="0.069"/>
-  <testcase name="all_emptyAtFirst" classname="BrandTest" time="0.02"/>
-  <testcase name="find_findsBrandInDatabase_true" classname="BrandTest" time="0.029"/>
-  <testcase name="addStore_addsStoreToBrand" classname="BrandTest" time="0.062"/>
-  <testcase name="updateColor_changesOnlyBrandColorAInDatabase_true" classname="BrandTest" time="0.066"/>
-  <testcase name="updateType_changesOnlyBrandTypeAInDatabase_true" classname="BrandTest" time="0.058"/>
-  <testcase name="brand_instantiatesCorrectly_true" classname="BrandTest" time="0.009"/>
+  <testcase name="equals_returnTrueIfBrandsAreTheSame" classname="BrandTest" time="0.008"/>
+  <testcase name="updateBrandName_changesOnlyBrandNameInDatabase_true" classname="BrandTest" time="0.059"/>
+  <testcase name="delete_deletesAllBrandsAndListAssociation" classname="BrandTest" time="0.053"/>
+  <testcase name="save_savesBrandIntoDatabase_true" classname="BrandTest" time="0.025"/>
+  <testcase name="updateStyle_changesOnlyBrandStyleInDatabase_true" classname="BrandTest" time="0.059"/>
+  <testcase name="all_emptyAtFirst" classname="BrandTest" time="0.016"/>
+  <testcase name="find_findsBrandInDatabase_true" classname="BrandTest" time="0.025"/>
+  <testcase name="addStore_addsStoreToBrand" classname="BrandTest" time="0.045"/>
+  <testcase name="updateColor_changesOnlyBrandColorAInDatabase_true" classname="BrandTest" time="0.06"/>
+  <testcase name="updateType_changesOnlyBrandTypeAInDatabase_true" classname="BrandTest" time="0.071"/>
+  <testcase name="brand_instantiatesCorrectly_true" classname="BrandTest" time="0.012"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

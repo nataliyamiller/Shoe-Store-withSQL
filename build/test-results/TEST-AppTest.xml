@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AppTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2015-09-06T00:08:41" hostname="Nataliyas-MacBook-Pro.local" time="1.86">
+<testsuite name="AppTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2015-09-06T00:11:32" hostname="Nataliyas-MacBook-Pro.local" time="1.722">
   <properties/>
-  <testcase name="delete_DeletesStoreFromDatabaseStoreNoLongerDisplayed" classname="AppTest" time="0.584"/>
-  <testcase name="storeIsDisplayedOnItsPage" classname="AppTest" time="0.084"/>
-  <testcase name="brandIsAddedAndDisplayedOnStoresPage" classname="AppTest" time="0.099"/>
-  <testcase name="brandIsDisplayedOnItsPage" classname="AppTest" time="0.074"/>
-  <testcase name="formForAddingStoresIsDisplayed" classname="AppTest" time="0.037"/>
-  <testcase name="updatePhoneNumber_UpdatesOnlyStorePhoneNumberAndLeavesNameAndAddressUntouched" classname="AppTest" time="0.076"/>
-  <testcase name="updateColor_UpdatesOnlyColorAndLeavesOtherBrandDataUntouched" classname="AppTest" time="0.078"/>
-  <testcase name="updateName_UpdatesOnlyStoreNameAndLeavesAddressAndPhoneNumberUntouched" classname="AppTest" time="0.096"/>
-  <testcase name="rootTest" classname="AppTest" time="0.034"/>
-  <testcase name="updateBrandName_UpdatesOnlyBrandNameAndLeavesOtherBrandDataUntouched" classname="AppTest" time="0.083"/>
-  <testcase name="brandIsSavedToDatabaseAndDisplayedOnTheBrandsPage" classname="AppTest" time="0.059"/>
-  <testcase name="updateStyle_UpdatesOnlyStyleAndLeavesOtherBrandDataUntouched" classname="AppTest" time="0.093"/>
-  <testcase name="storeIsAddedAndDisplayedOnBrandsPage" classname="AppTest" time="0.097"/>
-  <testcase name="formForAddingBrandsIsDisplayed" classname="AppTest" time="0.029"/>
-  <testcase name="updateAddress_UpdatesOnlyStoreAddressAndLeavesNameAndPhoneNumberUntouched" classname="AppTest" time="0.082"/>
-  <testcase name="updateType_UpdatesOnlyTypeAndLeavesOtherBrandDataUntouched" classname="AppTest" time="0.073"/>
-  <testcase name="storeIsSavedToDatabaseAndDisplayedOnTheStoresPage" classname="AppTest" time="0.039"/>
-  <testcase name="delete_DeletesBrandFromDatabaseBrandNoLongerDisplayed" classname="AppTest" time="0.051"/>
+  <testcase name="delete_DeletesStoreFromDatabaseStoreNoLongerDisplayed" classname="AppTest" time="0.495"/>
+  <testcase name="storeIsDisplayedOnItsPage" classname="AppTest" time="0.071"/>
+  <testcase name="brandIsAddedAndDisplayedOnStoresPage" classname="AppTest" time="0.123"/>
+  <testcase name="brandIsDisplayedOnItsPage" classname="AppTest" time="0.062"/>
+  <testcase name="formForAddingStoresIsDisplayed" classname="AppTest" time="0.035"/>
+  <testcase name="updatePhoneNumber_UpdatesOnlyStorePhoneNumberAndLeavesNameAndAddressUntouched" classname="AppTest" time="0.078"/>
+  <testcase name="updateColor_UpdatesOnlyColorAndLeavesOtherBrandDataUntouched" classname="AppTest" time="0.077"/>
+  <testcase name="updateName_UpdatesOnlyStoreNameAndLeavesAddressAndPhoneNumberUntouched" classname="AppTest" time="0.087"/>
+  <testcase name="rootTest" classname="AppTest" time="0.022"/>
+  <testcase name="updateBrandName_UpdatesOnlyBrandNameAndLeavesOtherBrandDataUntouched" classname="AppTest" time="0.082"/>
+  <testcase name="brandIsSavedToDatabaseAndDisplayedOnTheBrandsPage" classname="AppTest" time="0.044"/>
+  <testcase name="updateStyle_UpdatesOnlyStyleAndLeavesOtherBrandDataUntouched" classname="AppTest" time="0.082"/>
+  <testcase name="storeIsAddedAndDisplayedOnBrandsPage" classname="AppTest" time="0.106"/>
+  <testcase name="formForAddingBrandsIsDisplayed" classname="AppTest" time="0.028"/>
+  <testcase name="updateAddress_UpdatesOnlyStoreAddressAndLeavesNameAndPhoneNumberUntouched" classname="AppTest" time="0.076"/>
+  <testcase name="updateType_UpdatesOnlyTypeAndLeavesOtherBrandDataUntouched" classname="AppTest" time="0.071"/>
+  <testcase name="storeIsSavedToDatabaseAndDisplayedOnTheStoresPage" classname="AppTest" time="0.033"/>
+  <testcase name="delete_DeletesBrandFromDatabaseBrandNoLongerDisplayed" classname="AppTest" time="0.054"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[[Thread-4] INFO spark.webserver.SparkServer - == Spark has ignited ...
 [Thread-4] INFO spark.webserver.SparkServer - >> Listening on 0.0.0.0:4567
 [Thread-4] INFO org.eclipse.jetty.server.Server - jetty-9.0.2.v20130417
-[Thread-4] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@7fd0e71d{HTTP/1.1}{0.0.0.0:4567}
+[Thread-4] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@679b548c{HTTP/1.1}{0.0.0.0:4567}
 [Test worker] INFO spark.webserver.SparkServer - >>> Spark shutting down ...
-[Test worker] INFO org.eclipse.jetty.server.Server - Graceful shutdown org.eclipse.jetty.server.Server@2e5b543c by 
-[Test worker] INFO org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@7fd0e71d{HTTP/1.1}{0.0.0.0:4567}
+[Test worker] INFO org.eclipse.jetty.server.Server - Graceful shutdown org.eclipse.jetty.server.Server@2bb267e3 by 
+[Test worker] INFO org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@679b548c{HTTP/1.1}{0.0.0.0:4567}
 [Test worker] INFO spark.webserver.SparkServer - done
 ]]></system-err>
 </testsuite>

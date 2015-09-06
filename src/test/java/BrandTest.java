@@ -95,14 +95,22 @@ public class BrandTest {
   public void addStore_addsStoreToBrand() {
     Store myStore = new Store("Target", "Portland, OR", "503-555-5555");
     myStore.save();
-
     Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
     myBrand.save();
-
     myBrand.addStore(myStore);
     Store savedStore = myBrand.getStores().get(0);
     assertTrue(myStore.equals(savedStore));
  }
 
+ @Test
+ public void delete_deletesAllBrandsAndListAssociation () {
+   Store myStore = new Store ("Target", "Portland, OR", "503-555-5555");
+   myStore.save();
+   Brand myBrand = new Brand("Nike", "Sport", "Women's", "Yellow");
+   myBrand.save();
+   myBrand.addStore(myStore);
+   myBrand.delete();
+   assertEquals(myStore.getBrands().size(), 0);
+ }
 
 }
