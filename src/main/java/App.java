@@ -99,7 +99,7 @@ import java.util.Set;
       int id = Integer.parseInt(request.params("id"));
       Brand savedBrand = Brand.find(id);
       model.put("brand", savedBrand);
-      model.put("stores", savedBrand.getStores());
+      model.put("stores", Store.all());
       model.put("template", "templates/brand.vtl");
       return view;
     }, engine);
@@ -133,7 +133,7 @@ import java.util.Set;
       response.redirect("/brands/" + brand.getId());
       return null;
     });
-    post("/stores/:id/delete", (request, response) -> {
+    post("/brands/:id/delete", (request, response) -> {
       Brand brand = Brand.find(Integer.parseInt(request.params(":id")));
       brand.delete();
       response.redirect("/brands");

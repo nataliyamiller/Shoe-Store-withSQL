@@ -1,3 +1,5 @@
+<link rel='stylesheet' href='/stores.css'>
+
 <h2>Welcome to $brand.getBrandName() brand page</h2>
 <h5>Style: $brand.getStyle()</h5>
 <h5>Type: $brand.getType()</h5>
@@ -30,7 +32,7 @@
   <label for="store_id">Select a store</label>
   <select id='store_id' name='store_id' type='text'>
     #foreach($store in $stores)
-      <option value="$store.getId()"> $store.getName() $store.getAddress() $store.getPhoneNumber </option>
+      <option value="$store.getId()"> $store.getName() $store.getAddress() $store.getPhoneNumber() </option>
     #end
   </select>
   <button type='submit'>Add store</button>
@@ -73,6 +75,6 @@
   </form>
 
 
-<form action="/stores/$store.getId()/delete" method="post">
- <button type="submit" class="btn btn-success">Delete this store</button>
+<form action="/brands/$brand.getId()/delete" method="post">
+ <button type="submit" class="btn btn-success">Delete this brand</button>
 </form>

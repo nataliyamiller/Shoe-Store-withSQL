@@ -1,17 +1,27 @@
+<link rel='stylesheet' href='/stores.css'>
+
 <h2>Welcome to $store.getName() page</h2>
 <h5>Store address: $store.getAddress()</h5>
 <h5>Store phone number: $store.getPhoneNumber()</h5>
 
 #if($store.getBrands().size() != 0)
 <h2>$store.getName() currently carries the following brands:</h2>
-  <ol>
+<table border="1" class="table table-striped">
+      <th>Brand Name</th>
+      <th>Style</th>
+      <th>Type</th>
+      <th>Color</th>
+  <tbody>
     #foreach($brand in $store.getBrands())
-      <li>Brand name: <a href="/brands/$brand.getId()/edit">$brand.getBrandName()</a>,
-      Style: <a href:="/brands/$brand.getId()/edit">$brand.getStyle()</a>,
-      Type: <a href:="/brands/$brand.getId()/edit">$brand.getType()</a>,
-      Color: <a href:="/brands/$brand.getId()/edit">$brand.getColor()</a></li>
+      <tr>
+      <td><a href="/brands/$brand.getId()/edit">$brand.getBrandName()</a></td>
+      <td><a href:="/brands/$brand.getId()/edit">$brand.getStyle()</a></td>
+      <td><a href:="/brands/$brand.getId()/edit">$brand.getType()</a></td>
+      <td> <a href:="/brands/$brand.getId()/edit">$brand.getColor()</a></td>
+    </tr>
     #end
-  </ol>
+</tbody>
+</table>
 #else
   <h4>Currently there are no any brands at this store... Add the shoe brand to this store! </h4>
 #end
