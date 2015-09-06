@@ -31,7 +31,7 @@ By clicking on a particular store or brand you will go to that store or brand's 
 
 *Here is the database schema in WWW SQL Designer:
 
-
+![ScreenShot](https://raw.github.com/nataliyamiller/Shoe-Stores-withSQL/blob/master/src/main/resources/public/images/shoe_stores.png)
 
 
 ## Tests
