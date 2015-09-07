@@ -6,22 +6,23 @@
 
 #if($store.getBrands().size() != 0)
 <h2>$store.getName() currently carries the following brands:</h2>
-<table border="1" class="table table-striped">
-      <th>Brand Name</th>
-      <th>Style</th>
-      <th>Type</th>
-      <th>Color</th>
-  <tbody>
+  <table border="1" class="table table-striped">
+    <th>Brand Name</th>
+    <th>Style</th>
+    <th>Type</th>
+    <th>Color</th>
+
+    <tbody>
     #foreach($brand in $store.getBrands())
       <tr>
-      <td><a href="/brands/$brand.getId()/edit">$brand.getBrandName()</a></td>
-      <td><a href:="/brands/$brand.getId()/edit">$brand.getStyle()</a></td>
-      <td><a href:="/brands/$brand.getId()/edit">$brand.getType()</a></td>
-      <td> <a href:="/brands/$brand.getId()/edit">$brand.getColor()</a></td>
+        <td><a href="/brands/$brand.getId()/edit">$brand.getBrandName()</a></td>
+        <td><a href:="/brands/$brand.getId()/edit">$brand.getStyle()</a></td>
+        <td><a href:="/brands/$brand.getId()/edit">$brand.getType()</a></td>
+        <td> <a href:="/brands/$brand.getId()/edit">$brand.getColor()</a></td>
     </tr>
     #end
-</tbody>
-</table>
+    </tbody>
+  </table>
 #else
   <h4>Currently there are no any brands at this store... Add the shoe brand to this store! </h4>
 #end
@@ -29,14 +30,14 @@
 <h3>Add a shoe brand to $store.getName():</h3>
 
 <form action='/stores/$store.getId()/addbrands' method='post'>
-    <input id="store_id" name="store_id" type="hidden" value="$store.getId()">
-    <label for="brand_id">Select a brand</label>
-    <select id='brand_id' name='brand_id' type='text'>
-      #foreach($brand in $brands)
-        <option value="$brand.getId()"> $brand.getBrandName() $brand.getStyle() $brand.getType() $brand.getColor() </option>
-      #end
-    </select>
-    <button type='submit'>Add brand</button>
+  <input id="store_id" name="store_id" type="hidden" value="$store.getId()">
+  <label for="brand_id">Select a brand</label>
+  <select id='brand_id' name='brand_id' type='text'>
+    #foreach($brand in $brands)
+      <option value="$brand.getId()"> $brand.getBrandName() $brand.getStyle() $brand.getType() $brand.getColor() </option>
+    #end
+  </select>
+  <button type='submit'>Add brand</button>
 </form>
 
 <h4>Don't see the brand you like in the list? Add a completely new brand<a href='/brands'> here</a></h4>
@@ -49,9 +50,9 @@
     <input id="name" name="name" type="text" placeholder="Marchalls">
     <button type="submit" class="btn btn-success">Submit</button>
   </div>
-  </form
+</form
 
-  <form action="/stores/$store.getId()/update" method="post">
+<form action="/stores/$store.getId()/update" method="post">
   <div class="form-group">
     <label for="address">New address</label>
     <input id="address" name="address" type="text" placeholder="Tigard, OR">
@@ -59,7 +60,7 @@
   </div>
 </form>
 
-  <form action="/stores/$store.getId()/update" method="post">
+<form action="/stores/$store.getId()/update" method="post">
   <div class="form-group">
     <label for="phone_number">New phone number</label>
     <input id="phone_number" name="phone_number" type="text" placeholder="503-333-3399">
@@ -67,6 +68,6 @@
   </div>
 </form>
 
-  <form action="/stores/$store.getId()/delete" method="post">
+<form action="/stores/$store.getId()/delete" method="post">
    <button type="submit" class="btn btn-success">Delete this store</button>
- </form>
+</form>

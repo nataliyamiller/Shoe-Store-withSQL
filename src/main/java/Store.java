@@ -55,13 +55,13 @@ public class Store {
     try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO stores (name, address, phone_number) VALUES (:name, :address, :phone_number)";
       this.id = (int) con.createQuery(sql, true)
-      .addParameter("name", this.name)
-      .addParameter("address", this.address)
-      .addParameter("phone_number", this.phone_number)
-      .executeUpdate()
-      .getKey();
+        .addParameter("name", this.name)
+        .addParameter("address", this.address)
+        .addParameter("phone_number", this.phone_number)
+        .executeUpdate()
+        .getKey();
+      }
     }
-  }
 
   public static Store find(int id) {
     try(Connection con = DB.sql2o.open()) {
@@ -73,35 +73,35 @@ public class Store {
       }
     }
 
-public void updateName(String name) {
-  try(Connection con = DB.sql2o.open()) {
-    String sql = "UPDATE stores SET name = :name WHERE id = :id";
-    con.createQuery(sql)
-      .addParameter("name", name)
-      .addParameter("id", id)
-      .executeUpdate();
-  }
-}
+  public void updateName(String name) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE stores SET name = :name WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("name", name)
+        .addParameter("id", id)
+        .executeUpdate();
+      }
+    }
 
-public void updateAddress(String address) {
-  try(Connection con = DB.sql2o.open()) {
-    String sql = "UPDATE stores SET address = :address WHERE id = :id";
-    con.createQuery(sql)
-      .addParameter("address", address)
-      .addParameter("id", id)
-      .executeUpdate();
-  }
-}
+  public void updateAddress(String address) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE stores SET address = :address WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("address", address)
+        .addParameter("id", id)
+        .executeUpdate();
+      }
+    }
 
-public void updatePhoneNumber(String phone_number) {
-  try(Connection con = DB.sql2o.open()) {
-    String sql = "UPDATE stores SET phone_number = :phone_number WHERE id = :id";
-    con.createQuery(sql)
-      .addParameter("phone_number", phone_number)
-      .addParameter("id", id)
-      .executeUpdate();
+  public void updatePhoneNumber(String phone_number) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE stores SET phone_number = :phone_number WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("phone_number", phone_number)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
   }
-}
 
   public void addBrand(Brand brand) {
     try(Connection con = DB.sql2o.open()) {
@@ -113,16 +113,16 @@ public void updatePhoneNumber(String phone_number) {
       }
     }
 
-    public List<Brand> getBrands() {
-      try(Connection con = DB.sql2o.open()) {
-        String sql = "SELECT brands.* FROM stores JOIN stores_brands ON (stores.id = stores_brands.store_id)" +
+  public List<Brand> getBrands() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT brands.* FROM stores JOIN stores_brands ON (stores.id = stores_brands.store_id)" +
         " JOIN brands ON (stores_brands.brand_id = brands.id) WHERE stores.id = :id";
-        List<Brand> brands = con.createQuery(sql)
-          .addParameter("id", this.getId())
-          .executeAndFetch(Brand.class);
-          return brands;
-        }
+      List<Brand> brands = con.createQuery(sql)
+        .addParameter("id", this.getId())
+        .executeAndFetch(Brand.class);
+        return brands;
       }
+    }
 
 
   public void delete() {
@@ -138,6 +138,5 @@ public void updatePhoneNumber(String phone_number) {
           .executeUpdate();
     }
   }
-
 
 }

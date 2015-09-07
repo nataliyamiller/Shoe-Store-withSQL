@@ -133,15 +133,13 @@ import java.util.Set;
       response.redirect("/brands/" + brand.getId());
       return null;
     });
+
     post("/brands/:id/delete", (request, response) -> {
       Brand brand = Brand.find(Integer.parseInt(request.params(":id")));
       brand.delete();
       response.redirect("/brands");
       return null;
     });
-
-
-
 
   }
 }

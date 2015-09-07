@@ -13,13 +13,13 @@
       <th>Phone number</th>
   <tbody>
   #foreach($store in $brand.getStores())
-  <tr>
-    <td><a href="/stores/$store.getId()/edit">$store.getName()</a></td>
-    <td><a href="/stores/$store.getId()/edit">$store.getAddress()</a></td>
-    <td><a href="/stores/$store.getId()/edit">$store.getPhoneNumber()</a></td>
-  </tr>
+    <tr>
+      <td><a href="/stores/$store.getId()/edit">$store.getName()</a></td>
+      <td><a href="/stores/$store.getId()/edit">$store.getAddress()</a></td>
+      <td><a href="/stores/$store.getId()/edit">$store.getPhoneNumber()</a></td>
+    </tr>
   #end
-</tbody>
+  </tbody>
 </table>
 #else
 <h4>Currently this brand doens't have any added stores. Add the first store to this brand! </h4>
@@ -43,27 +43,27 @@
 <h4>Update this brand's information:</h4>
 
 <form action="/brands/$brand.getId()/update" method="post">
-<div class="form-group">
-  <label for="brand_name">New brand name</label>
-  <input id="brand_name" name="brand_name" type="text" placeholder="Best Brand">
-  <button type="submit" class="btn btn-success">Submit</button>
-</div>
+  <div class="form-group">
+    <label for="brand_name">New brand name</label>
+    <input id="brand_name" name="brand_name" type="text" placeholder="Best Brand">
+    <button type="submit" class="btn btn-success">Submit</button>
+  </div>
 </form>
 
 <form action="/brands/$brand.getId()/update" method="post">
-<div class="form-group">
-  <label for="style">New style</label>
-  <input id="style" name="style" type="text" placeholder="Wedding">
-  <button type="submit" class="btn btn-success">Submit</button>
-</div>
+  <div class="form-group">
+    <label for="style">New style</label>
+    <input id="style" name="style" type="text" placeholder="Wedding">
+    <button type="submit" class="btn btn-success">Submit</button>
+  </div>
 </form>
 
 <form action="/brands/$brand.getId()/update" method="post">
-<div class="form-group">
-  <label for="type">New Type</label>
-  <input id="type" name="type" type="text" placeholder="Women's">
-  <button type="submit" class="btn btn-success">Submit</button>
-</div>
+  <div class="form-group">
+    <label for="type">New Type</label>
+    <input id="type" name="type" type="text" placeholder="Women's">
+    <button type="submit" class="btn btn-success">Submit</button>
+  </div>
 </form>
 
 <form action="/brands/$brand.getId()/update" method="post">
@@ -72,7 +72,7 @@
     <input id="color" name="color" type="text" placeholder="White">
     <button type="submit" class="btn btn-success">Submit</button>
   </div>
-  </form>
+</form>
 
 
 <form action="/brands/$brand.getId()/delete" method="post">
