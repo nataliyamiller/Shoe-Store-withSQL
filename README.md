@@ -7,8 +7,7 @@
 
 ### Description
 
-_This application allows you to add new stores and to add brands to a particular store. And vise versa, it allows to add new brands and to add stores to a particular brand.  You can also update or delete stores or brands.
-By clicking on a particular store or brand you will go to that store or brand's page, where you can see and manage the data for that store or brand.
+This application allows user to add new stores and brands to the list. After adding a new store, user can go to that store's page and add brands to that store. And vice versa, after adding a new brand, user can go to that brand's page and add stores to that brand. User can also update each store or brand information, or delete that store or brand if it's no longer needed. 
 
 
 ## Setup
